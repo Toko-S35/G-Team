@@ -77,7 +77,6 @@
 
 
 
-
 </div>
 <div class="page">
     <div id="Input" class="w3-container w3-display-container city" style="display:none">
@@ -86,7 +85,6 @@
 
         <p><?= $this->include('inventaris/Input_barang'); ?></p>
     </div>
-</div>
 </div>
 
 <script>

@@ -3,14 +3,18 @@
 namespace App\Controllers;
 
 use App\Models\BarangModel;
+use App\Models\EkspedisiModel;
 
 class Home extends BaseController
 {
     protected $barangModel;
+    protected $ekspedisiModel;
     public function __construct()
     {
         $this->barangModel = new BarangModel();
+        $this->ekspedisiModel = new EkspedisiModel();
     }
+
 
     public function index()
     {
@@ -35,8 +39,10 @@ class Home extends BaseController
     }
     public function pengiriman_barang()
     {
+        $ekspedisi = $this->ekspedisiModel->findAll();
         $data = [
-            'title' => 'Kasih Abadi | S-35 |Ekspedisi'
+            'title' => 'Kasih Abadi | S-35 |Ekspedisi',
+            'ekspedisi' => $ekspedisi
         ];
         return view('pengiriman_barang/pengiriman_barang', $data);
     }
