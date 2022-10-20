@@ -3,80 +3,91 @@
 
 
 
-<div style="margin:20px;">
-    <button class="btn_tampil" onclick="openCity('Input')">Input Barang</button>
+<div class="page">
     <button class="btn_tampil" onclick="openCity('List')">List Barang</button>
+    <button class="btn_tampil" onclick="openCity('Input')">Input Barang</button>
 
     <hr>
 
-    <div id="Input" class="w3-container w3-display-container city">
+    <div id="List" class="w3-container w3-display-container city">
         <span onclick="this.parentElement.style.display='none'"
             class="w3-button w3-large w3-display-topright">&times;</span>
 
+
+        <!-- Page Heading -->
+
         <div class="ctnr">
-            <p>Form Tambah Barang</p>
-            <hr>
-            <div class="row">
-                <div class="col-sm-4">
-                    <form role="form" action="insert.php" method="post">
 
-                        <label for="harga jual">Harga Jual</label><br>
-                        <select class="form-control" id="harga jual">
-                            <option> </option>
-                            <option value="premium">50.000</option>
-                            <option value="reguler">35.000</option>
-                            <option value="ekonomis">10.000</option>
-                            <option value="new">lainya</option>
-                        </select>
+            <p>List Barang</p>
+        </div>
 
-                        <div class="form-group">
-                            <label for="start">Tanggal:</label><br>
-                            <input class="form-control" type="date" id="start" name="trip-start" value="2018-07-22"
-                                min="2018-01-01" max="2035-12-31">
-                        </div>
+        <hr>
 
-                        <div class="form-group">
-                            <label>Harga Modal</label>
-                            <input type="text" name="terbit_bk" class="form-control">
-                        </div>
-
-                        <div class="form-group">
-                            <label>Banyak Barang</label>
-                            <input type="text" name="genre_bk" class="form-control">
-                        </div>
+        <div class="card shadow mb-4">
 
 
-                        <button type="submit" style="
-                cursor: pointer;
-                border-radius: 10px;
-                background-color: #F4EB93;
-                padding: 5px 30px 5px 30px;
-                font-family: roboto;
-                /* margin-left:30%; */
-                font-size: 15px;
-                color:#171C7B; 
-                border-color:#171C7B;         
-                font-weight: bold;">Tambah Barang</button>
-                    </form>
+            <!-- DataTales Example -->
 
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Harga Jual</th>
+                                <th>Tanggal</th>
+                                <th>Harga Modal</th>
+                                <th>Banyak Barang</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Harga Jual</th>
+                                <th>Tanggal</th>
+                                <th>Harga Modal</th>
+                                <th>Banyak Barang</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <?php $i = 1 ?>
+                            <?php foreach ($barang as $k) : ?>
+                            <tr>
+                                <td><?= $i++; ?></td>
+                                <td><?= $k['harga_jual']; ?></td>
+                                <td><?= $k['tanggal']; ?></td>
+                                <td><?= $k['harga_modal']; ?></td>
+                                <td><?= $k['banyak_barang']; ?></td>
+
+                            </tr>
+                        </tbody>
+                        <?php endforeach; ?>
+
+                    </table>
                 </div>
             </div>
+
+
         </div>
 
 
-
-
+        <!-- End of Main Content -->
     </div>
 
-    <div id="List" class="w3-container w3-display-container city" style="display:none">
-        <span onclick="this.parentElement.style.display='none'"
-            class="w3-button w3-large w3-display-topright">&times;</span>
 
-        <p><?= $this->include('inventaris/list_barang'); ?></p>
+
+
+</div>
+<div class="page">
+    <div id="Input" class="w3-container w3-display-container city" style="display:none">
+        <span onclick="this.parentElement.style.display='none'"
+            class="w3-button w3-midle w3-display-topright">&times;</span>
+
+        <p><?= $this->include('inventaris/Input_barang'); ?></p>
     </div>
 </div>
-
+</div>
 
 <script>
 function openCity(cityName) {
@@ -88,8 +99,6 @@ function openCity(cityName) {
     document.getElementById(cityName).style.display = "block";
 }
 </script>
-
-
 
 
 

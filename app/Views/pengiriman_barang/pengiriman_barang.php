@@ -59,16 +59,8 @@
 
                                 <div>
                                     <label for="start">Tanggal:</label><br>
-                                    <input style="
-                margin-top: 8px; 
-                margin-bottom: 8px; 
-                width:270px;
-                height:30px;
-                border-radius: 5px;
-                border-color:#F4EB93;
-                font-family: roboto;
-                font: size 13px;" type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
-                                        max="2035-12-31">
+                                    <input class="form-control" type="date" id="start" name="trip-start"
+                                        value="2018-07-22" min="2018-01-01" max="2035-12-31">
                                 </div>
 
                                 <div class="form-group">
@@ -87,7 +79,8 @@
                                 </div>
 
                                 <label for="harga jual">Biaya Pengiriman</label><br>
-                                <input type="int" name="" value="" id="biaya_pengiriman_barang" style="
+                                <input class="form-control" type="int" name="" value="" id="biaya_pengiriman_barang"
+                                    style="
                 margin-top: 8px;
                 margin-bottom: 8px;
                 width:270px;

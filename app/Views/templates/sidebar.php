@@ -19,6 +19,13 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
+        <a class="nav-link" href=<?= base_url('/'); ?>>
+            <i class="fas fa-home"></i>
+            <span>Home</span></a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
         <a class="nav-link" href="index.html">
             <i class="fas fa-chart-line"></i>
             <span>statistik</span></a>
