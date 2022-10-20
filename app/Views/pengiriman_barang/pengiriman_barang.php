@@ -124,7 +124,7 @@
         <span onclick="this.parentElement.style.display='none'"
             class="w3-button w3-large w3-display-topright">&times;</span>
 
-        <p><?= $this->include('inventaris/list_barang'); ?></p>
+        <p><?= $this->include('pengiriman_barang/list_pengiriman_barang'); ?></p>
     </div>
 </div>
 
