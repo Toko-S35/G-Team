@@ -46,4 +46,16 @@ class Home extends BaseController
         ];
         return view('pengiriman_barang/pengiriman_barang', $data);
     }
+
+
+    public function inputBrg()
+    {
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Input Barang',
+
+
+        ];
+
+        return view('inventaris/input_barang', $data);
+    }
 }
