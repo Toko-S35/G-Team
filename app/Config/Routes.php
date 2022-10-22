@@ -38,6 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/inventaris', 'Home::inventaris');
 $routes->get('/pengiriman_barang', 'Home::pengiriman_barang');
+$routes->post('/save', 'Home::save');
 
 
 /*

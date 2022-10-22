@@ -9,9 +9,21 @@
 
 
 
-    <form role="" action="" method="">
+    <form action="<?= base_url("/save") ?>" method="post">
 
-        <div id="jual" class="w3-container w3-display-container city">
+        <div class="form-group">
+            <label>Harga jual</label>
+            <input type="text" name="harga_jual" list="list" class="form-control">
+            <datalist id="list">
+                <option value="50000">
+                <option value="35000">
+                <option value="10000">
+            </datalist>
+        </div>
+
+
+
+        <!-- <div id="jual" class="w3-container w3-display-container city">
             <span onclick="resetElement() " class="w3-button w3-large w3-display-topright">&times;</span>
 
             <div class="form-group">
@@ -30,7 +42,7 @@
                 <option value="reguler">35.000</option>
                 <option value="ekonomis">10.000</option>
             </select>
-        </div>
+        </div> -->
 
 
         <div class="form-group">
@@ -66,7 +78,7 @@
 
 </div>
 
-<script>
+<!-- <script>
 function openBaru(jual, o_jual) {
     document.getElementById(jual).style.display = "block";
     document.getElementById(o_jual).style.display = "none";
@@ -77,4 +89,4 @@ function resetElement() {
     document.getElementById("o_jual").style.display = "block";
     document.getElementById("jual").style.display = "none";
 }
-</script>
+</script> -->

@@ -58,4 +58,9 @@ class Home extends BaseController
 
         return view('inventaris/input_barang', $data);
     }
+
+    public function save()
+    {
+        dd($this->request->getVar());
+    }
 }
