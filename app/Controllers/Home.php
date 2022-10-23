@@ -59,8 +59,20 @@ class Home extends BaseController
         return view('inventaris/input_barang', $data);
     }
 
+
     public function save()
+
     {
-        dd($this->request->getVar());
+        $this->barangModel->save([
+            'harga_jual' => $this->request->getVar('harga_jual'),
+            'tanggal' => $this->request->getVar('tanggal'),
+            'harga_modal' => $this->request->getVar('harga_modal'),
+            'banyak_barang' => $this->request->getVar('banyak_barang'),
+            // 'created_at' => date('$timestamp'),
+            // 'update_at' => date('$timestamp'),
+
+        ]);
+
+        return redirect()->back()->withInput();
     }
 }

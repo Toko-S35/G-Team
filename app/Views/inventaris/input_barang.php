@@ -4,8 +4,8 @@
 <hr>
 <div class="col-sm-4">
 
-    <button style="width: 60px; background-color:#F4EB93; margin:5px; font-size:10px; border-radius:10px; float:right;"
-        onclick="openBaru('jual','o_jual')">baru</button>
+    <!-- <button style="width: 60px; background-color:#F4EB93; margin:5px; font-size:10px; border-radius:10px; float:right;"
+        onclick="openBaru('jual','o_jual')">baru</button> -->
 
 
 
@@ -47,18 +47,17 @@
 
         <div class="form-group">
             <label for="start">Tanggal:</label><br>
-            <input class="form-control" type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01"
-                max="2035-12-31">
+            <input class="form-control" type="date" id="start" name="tanggal">
         </div>
 
         <div class="form-group">
             <label>Harga Modal</label>
-            <input type="text" name="terbit_bk" class="form-control">
+            <input type="text" name="harga_modal" class="form-control">
         </div>
 
         <div class="form-group">
             <label>Banyak Barang</label>
-            <input type="text" name="genre_bk" class="form-control">
+            <input type="text" name="banyak_barang" class="form-control">
         </div>
 
 
