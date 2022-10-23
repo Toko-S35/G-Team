@@ -34,7 +34,7 @@
 
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>NO</th>
                                 <th>Harga Jual</th>
                                 <th>Tanggal</th>
                                 <th>Harga Modal</th>
@@ -43,7 +43,7 @@
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Id</th>
+                                <th>NO</th>
                                 <th>Harga Jual</th>
                                 <th>Tanggal</th>
                                 <th>Harga Modal</th>

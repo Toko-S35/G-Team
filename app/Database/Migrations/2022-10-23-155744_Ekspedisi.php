@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Barang extends Migration
+class Ekspedisi extends Migration
 {
     public function up()
     {
@@ -15,18 +15,26 @@ class Barang extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'harga_jual' => [
-                'type'       => 'INT',
-                'unsigned'   => true,
-            ],
             'tanggal' => [
                 'type'       => 'DATE',
             ],
-            'harga_modal' => [
+            'tujuan' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+            ],
+            'jarak_tempuh' => [
                 'type'       => 'INT',
                 'unsigned'   => true,
             ],
             'banyak_barang' => [
+                'type'       => 'INT',
+                'unsigned'   => true,
+            ],
+            'detail_pengiriman' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+            ],
+            'biaya_pengiriman' => [
                 'type'       => 'INT',
                 'unsigned'   => true,
             ],
@@ -41,11 +49,11 @@ class Barang extends Migration
 
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('barang');
+        $this->forge->createTable('ekspedisi');
     }
 
     public function down()
     {
-        $this->forge->dropTable('barang');
+        $this->forge->dropTable('ekspedisi');
     }
 }

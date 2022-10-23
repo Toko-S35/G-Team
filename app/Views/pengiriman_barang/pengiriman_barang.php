@@ -35,22 +35,24 @@
 
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>NO</th>
                                 <th>Tanggal</th>
-                                <th>pengiriman Ke Toko</th>
+                                <th>Tujuan</th>
                                 <th>Jarak Tempuh</th>
-                                <th>Banyak Muatan</th>
+                                <th>Banyak Barang</th>
+                                <th>Detail Pengiriman</th>
                                 <th>Biaya Pengiriman</th>
 
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Id</th>
+                                <th>NO</th>
                                 <th>Tanggal</th>
-                                <th>pengiriman Ke Toko</th>
+                                <th>Tujuan</th>
                                 <th>Jarak Tempuh</th>
-                                <th>Banyak Muatan</th>
+                                <th>Banyak Barang</th>
+                                <th>Detail Pengiriman</th>
                                 <th>Biaya Pengiriman</th>
                             </tr>
                         </tfoot>
@@ -60,9 +62,10 @@
                             <tr>
                                 <td><?= $i++; ?></td>
                                 <td><?= $k['tanggal']; ?></td>
-                                <td><?= $k['pengiriman_ketoko']; ?></td>
+                                <td><?= $k['tujuan']; ?></td>
                                 <td><?= $k['jarak_tempuh']; ?></td>
-                                <td><?= $k['banyak_muatan']; ?></td>
+                                <td><?= $k['banyak_barang']; ?></td>
+                                <td><?= $k['detail_pengiriman']; ?></td>
                                 <td><?= $k['biaya_pengiriman']; ?></td>
 
                             </tr>
@@ -86,7 +89,7 @@
         <span onclick="this.parentElement.style.display='none'"
             class="w3-button w3-midle w3-display-topright">&times;</span>
 
-        <p><?= $this->include('inventaris/Input_barang'); ?></p>
+        <p><?= $this->include('pengiriman_barang/input_ekspedisi'); ?></p>
     </div>
 </div>
 
