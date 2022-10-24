@@ -52,7 +52,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="<?= base_url('toko'); ?>">
             <i class="fas fa-store"></i>
             <span>Toko</span></a>
     </li>

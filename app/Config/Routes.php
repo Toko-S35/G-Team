@@ -40,7 +40,9 @@ $routes->get('/inventaris', 'C_inventaris::inventaris');
 $routes->post('/save', 'C_inventaris::save');
 $routes->get('/pengiriman_barang', 'C_ekspedisi::pengiriman_barang');
 $routes->post('/simpan', 'C_ekspedisi::simpan');
-
+$routes->get('/toko', 'Home::toko');
+$routes->get('/input_toko', 'Home::input_toko');
+$routes->get('/details', 'Home::details');
 
 
 
