@@ -40,8 +40,8 @@
                                 <th>Tujuan</th>
                                 <th>Jarak Tempuh</th>
                                 <th>Banyak Barang</th>
-                                <th>Detail Pengiriman</th>
                                 <th>Biaya Pengiriman</th>
+                                <th>Detail Pengiriman</th>
 
                             </tr>
                         </thead>
@@ -52,8 +52,8 @@
                                 <th>Tujuan</th>
                                 <th>Jarak Tempuh</th>
                                 <th>Banyak Barang</th>
-                                <th>Detail Pengiriman</th>
                                 <th>Biaya Pengiriman</th>
+                                <th>Detail Pengiriman</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -65,8 +65,8 @@
                                 <td><?= $k['tujuan']; ?></td>
                                 <td><?= $k['jarak_tempuh']; ?></td>
                                 <td><?= $k['banyak_barang']; ?></td>
-                                <td><?= $k['detail_pengiriman']; ?></td>
                                 <td><?= $k['biaya_pengiriman']; ?></td>
+                                <td><?= $k['detail_pengiriman']; ?></td>
 
                             </tr>
                         </tbody>

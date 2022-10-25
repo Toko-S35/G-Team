@@ -32,13 +32,13 @@
         </div>
 
         <div class="form-group">
-            <label>Detail Pengiriman</label>
-            <textarea type="text" name="detail_pengiriman" class="form-control"></textarea>
+            <label>Biaya Pengiriman</label>
+            <input type="text" name="biaya_pengiriman" class="form-control">
         </div>
 
         <div class="form-group">
-            <label>Biaya Pengiriman</label>
-            <input type="text" name="biaya_pengiriman" class="form-control">
+            <label>Detail Pengiriman</label>
+            <textarea type="text" name="detail_pengiriman" class="form-control"></textarea>
         </div>
 
 

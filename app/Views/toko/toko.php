@@ -17,8 +17,7 @@
         <!-- Page Heading -->
 
         <div class="ctnr">
-
-            <p>TOKO</p>
+            <p>Toko</p>
         </div>
 
         <hr>
@@ -53,15 +52,15 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                    
+
                             <tr>
-                            <td>I LOVE YOU</td>
-                            <td>I LOVE YOU</td>
-                            <td>I LOVE YOU</td>
-                            <td>I LOVE YOU</td>
-                            <td>I LOVE YOU</td>
-                            <td><a href="<?= base_url('/details'); ?>">Details</a></td>
-                               
+                                <td>1</td>
+                                <td>Kasih Abadi</td>
+                                <td>Muhaymi Udin</td>
+                                <td>muhaymi69</td>
+                                <td>********</td>
+                                <td><a href="<?= base_url('/details'); ?>">Details</a></td>
+
                             </tr>
                         </tbody>
 

@@ -24,13 +24,6 @@
             <span>Home</span></a>
     </li>
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-chart-line"></i>
-            <span>statistik</span></a>
-    </li>
-
     <!-- Nav Item - My Profile -->
     <li class="nav-item">
         <a class="nav-link" href=<?= base_url('inventaris'); ?>>
