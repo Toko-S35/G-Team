@@ -43,6 +43,8 @@ $routes->post('/simpan', 'C_ekspedisi::simpan');
 $routes->get('/toko', 'Home::toko');
 $routes->get('/input_toko', 'Home::input_toko');
 $routes->get('/details', 'Home::details');
+$routes->get('/keuangan', 'Home::keuangan');
+
 
 
 

@@ -39,7 +39,7 @@
 
     <!-- Nav Item - Edit Profile -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href=<?= base_url('keuangan'); ?>>
             <i class="fas fa-donate"></i>
             <span>Keuangan</span></a>
     </li>
