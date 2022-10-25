@@ -36,6 +36,7 @@
                                 <th>NO</th>
                                 <th>Nama Toko</th>
                                 <th>Kepala Toko</th>
+                                <th>Email</th>
                                 <th>Username</th>
                                 <th>Password</th>
                                 <th>Details</th>
@@ -46,6 +47,7 @@
                                 <th>NO</th>
                                 <th>Nama Toko</th>
                                 <th>Kepala Toko</th>
+                                <th>Email</th>
                                 <th>Username</th>
                                 <th>Password</th>
                                 <th>Details</th>
@@ -57,13 +59,13 @@
                                 <td>1</td>
                                 <td>Kasih Abadi</td>
                                 <td>Muhaymi Udin</td>
+                                <td>muhayminurdin28@gmail.com</td>
                                 <td>muhaymi69</td>
-                                <td>********</td>
+                                <td>sampah123</td>
                                 <td><a href="<?= base_url('/details'); ?>">Details</a></td>
 
                             </tr>
                         </tbody>
-
 
                     </table>
                 </div>

@@ -21,6 +21,23 @@
             );
         }
         </script>
+
+        <script language="JavaScript">
+        if (window.location == "http://localhost:8080/keuangan") {
+            document.write(
+                "<p style='color:black; padding-top:40px; font-size:20px; font-family: roboto;'>Keuangan</p>"
+            );
+        }
+        </script>
+
+        <script language="JavaScript">
+        if (window.location == "http://localhost:8080/toko") {
+            document.write(
+                "<p style='color:black; padding-top:40px; font-size:20px; font-family: roboto;'>Toko</p>"
+            );
+        }
+        </script>
+
     </ul>
 
     <!-- Topbar Navbar -->
