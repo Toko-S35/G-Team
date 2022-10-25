@@ -36,31 +36,31 @@
                             <tr>
                                 <th>NO</th>
                                 <th>Tanggal</th>
-                                <th>terjual  50000</th>
-                                <th>terjual  35000</th>
-                                <th>terjual  10000</th>
+                                <th>Premium</th>
+                                <th>Reguler</th>
+                                <th>Ekonomis</th>
                                 <th>Pendapatan</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                            <th>NO</th>
+                                <th>NO</th>
                                 <th>Tanggal</th>
-                                <th>terjual  50000</th>
-                                <th>terjual  35000</th>
-                                <th>terjual  10000</th>
+                                <th>Premium</th>
+                                <th>Reguler</th>
+                                <th>Ekonomis</th>
                                 <th>Pendapatan</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                    
+
                             <tr>
-                            <td>1</td>
-                            <td>10-10-2022</td>
-                            <td>10</td>
-                            <td>20</td>
-                            <td>30</td>
-                            <td>1400000</td>
+                                <td>1</td>
+                                <td>10-10-2022</td>
+                                <td>10</td>
+                                <td>20</td>
+                                <td>30</td>
+                                <td>1400000</td>
 
                             </tr>
                         </tbody>

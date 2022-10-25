@@ -6,23 +6,23 @@
 
     <form action="<?= base_url("/save") ?>" method="post">
 
-    <div class="form-group">
+        <div class="form-group">
             <label for="start">Tanggal:</label><br>
             <input class="form-control" type="date" name="tanggal">
         </div>
 
         <div class="form-group">
-            <label>terjual 50</label>
+            <label>Premium (sold)</label>
             <input type="text" name="terjual35" class="form-control">
         </div>
 
         <div class="form-group">
-            <label>terjual 35</label>
+            <label>Reguler (sold)</label>
             <input type="text" name="terjual35" class="form-control">
         </div>
 
         <div class="form-group">
-            <label>terjual 10</label>
+            <label>Ekonomis (sold)</label>
             <input type="text" name="terjual10" class="form-control">
         </div>
 
@@ -47,4 +47,3 @@
 
 
 </div>
-
