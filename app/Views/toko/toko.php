@@ -4,8 +4,8 @@
 
 
 <div class="page">
-    <button class="btn_tampil" onclick="openCity('List')">List Pengiriman Barang</button>
-    <button class="btn_tampil" onclick="openCity('Input')">Input Pengiriman Barang</button>
+    <button class="btn_tampil" onclick="openCity('List')">Toko</button>
+    <button class="btn_tampil" onclick="openCity('Input')">Input Toko</button>
 
     <hr>
 
@@ -13,13 +13,11 @@
         <span onclick="this.parentElement.style.display='none'"
             class="w3-button w3-large w3-display-topright">&times;</span>
 
-        <hr>
 
         <!-- Page Heading -->
 
         <div class="ctnr">
-
-            <p>List Barang</p>
+            <p>Toko</p>
         </div>
 
         <hr>
@@ -36,41 +34,38 @@
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>Tanggal</th>
-                                <th>Tujuan</th>
-                                <th>Jarak Tempuh</th>
-                                <th>Banyak Barang</th>
-                                <th>Biaya Pengiriman</th>
-                                <th>Detail Pengiriman</th>
-
+                                <th>Nama Toko</th>
+                                <th>Kepala Toko</th>
+                                <th>Email</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Details</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>NO</th>
-                                <th>Tanggal</th>
-                                <th>Tujuan</th>
-                                <th>Jarak Tempuh</th>
-                                <th>Banyak Barang</th>
-                                <th>Biaya Pengiriman</th>
-                                <th>Detail Pengiriman</th>
+                                <th>Nama Toko</th>
+                                <th>Kepala Toko</th>
+                                <th>Email</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Details</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            <?php $i = 1 ?>
-                            <?php foreach ($ekspedisi as $k) : ?>
+
                             <tr>
-                                <td><?= $i++; ?></td>
-                                <td><?= $k['tanggal']; ?></td>
-                                <td><?= $k['tujuan']; ?></td>
-                                <td><?= $k['jarak_tempuh']; ?></td>
-                                <td><?= $k['banyak_barang']; ?></td>
-                                <td><?= $k['biaya_pengiriman']; ?></td>
-                                <td><?= $k['detail_pengiriman']; ?></td>
+                                <td>1</td>
+                                <td>Kasih Abadi</td>
+                                <td>Muhaymi Udin</td>
+                                <td>muhayminurdin28@gmail.com</td>
+                                <td>muhaymi69</td>
+                                <td>sampah123</td>
+                                <td><a href="<?= base_url('/details'); ?>">Details</a></td>
 
                             </tr>
                         </tbody>
-                        <?php endforeach; ?>
 
                     </table>
                 </div>
@@ -83,19 +78,17 @@
         <!-- End of Main Content -->
     </div>
 
+
+
 </div>
 <div class="page">
     <div id="Input" class="w3-container w3-display-container city" style="display:none">
         <span onclick="this.parentElement.style.display='none'"
             class="w3-button w3-midle w3-display-topright">&times;</span>
 
-        <p><?= $this->include('pengiriman_barang/input_ekspedisi'); ?></p>
+        <p><?= $this->include('Toko/Input_Toko'); ?></p>
     </div>
 </div>
-
-
-
-
 
 <script>
 function openCity(cityName) {
@@ -107,8 +100,6 @@ function openCity(cityName) {
     document.getElementById(cityName).style.display = "block";
 }
 </script>
-
-
 
 
 

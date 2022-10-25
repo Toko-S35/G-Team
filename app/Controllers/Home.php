@@ -7,14 +7,6 @@ use App\Models\EkspedisiModel;
 
 class Home extends BaseController
 {
-    protected $barangModel;
-    protected $ekspedisiModel;
-    public function __construct()
-    {
-        $this->barangModel = new BarangModel();
-        $this->ekspedisiModel = new EkspedisiModel();
-    }
-
 
     public function index()
     {
@@ -23,56 +15,36 @@ class Home extends BaseController
         ];
         return view('user/index', $data);
     }
-    public function inventaris()
-    {
-        $barang = $this->barangModel->findAll();
-        $data = [
-            'title' => 'Kasih Abadi | S-35 |inventaris',
-            'barang' => $barang
-        ];
 
-        // $barangModel = new BarangModel();
-
-
-
-        return view('inventaris/inventaris_barang', $data);
-    }
-    public function pengiriman_barang()
-    {
-        $ekspedisi = $this->ekspedisiModel->findAll();
-        $data = [
-            'title' => 'Kasih Abadi | S-35 |Ekspedisi',
-            'ekspedisi' => $ekspedisi
-        ];
-        return view('pengiriman_barang/pengiriman_barang', $data);
-    }
-
-
-    public function inputBrg()
+    public function toko()
     {
         $data = [
-            'title' => 'Kasih Abadi | S-35 |Input Barang',
-
-
+            'title' => 'Kasih Abadi | S-35 | toko'
         ];
-
-        return view('inventaris/input_barang', $data);
+        return view('toko/toko', $data);
     }
 
-
-    public function save()
-
+    public function input_toko()
     {
-        $this->barangModel->save([
-            'harga_jual' => $this->request->getVar('harga_jual'),
-            'tanggal' => $this->request->getVar('tanggal'),
-            'harga_modal' => $this->request->getVar('harga_modal'),
-            'banyak_barang' => $this->request->getVar('banyak_barang'),
-            // 'created_at' => date('$timestamp'),
-            // 'update_at' => date('$timestamp'),
+        $data = [
+            'title' => 'Kasih Abadi | S-35 | input_toko'
+        ];
+        return view('toko/input_toko', $data);
+    }
 
-        ]);
+    public function details()
+    {
+        $data = [
+            'title' => 'Kasih Abadi | S-35 | details'
+        ];
+        return view('toko/details', $data);
+    }
 
-        return redirect()->back()->withInput();
+    public function keuangan()
+    {
+        $data = [
+            'title' => 'Kasih Abadi | S-35 | keuangan'
+        ];
+        return view('keuangan/keuangan', $data);
     }
 }
