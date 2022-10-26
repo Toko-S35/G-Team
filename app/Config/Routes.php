@@ -52,7 +52,9 @@ $routes->get('/pengiriman_barang', 'C_ekspedisi::pengiriman_barang');
 $routes->post('/simpan', 'C_ekspedisi::simpan');
 
 $routes->get('/toko', 'C_toko::toko');
-$routes->get('/input_toko', 'Home::input_toko');
+$routes->post('/savet', 'C_toko::savet');
+
+// $routes->get('/input_toko', 'Home::input_toko');
 
 $routes->get('/details', 'Home::details');
 

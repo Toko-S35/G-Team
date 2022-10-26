@@ -4,7 +4,7 @@
 <hr>
 <div class="col-sm-4">
 
-    <form action="<?= base_url("/save") ?>" method="post">
+    <form action="<?= base_url("/savet") ?>" method="post">
 
         <div class="form-group">
             <label>Nama Toko</label>
@@ -13,7 +13,7 @@
 
         <div class="form-group">
             <label>Alamat</label>
-            <input type="text" name="alamat" class="form-control">
+            <input type="text" name="alamat_toko" class="form-control">
         </div>
 
         <div class="form-group">

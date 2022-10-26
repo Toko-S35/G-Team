@@ -24,18 +24,22 @@ class C_toko extends BaseController
         return view('toko/toko', $data);
     }
 
-    // public function simpan()
-    // {
-    //     $this->ekspedisiModel->insert([
+    public function savet()
+    {
+        $this->tokoModel->insert([
 
-    //         'tanggal' => $this->request->getVar('tanggal'),
-    //         'tujuan' => $this->request->getVar('tujuan'),
-    //         'jarak_tempuh' => $this->request->getVar('jarak_tempuh'),
-    //         'banyak_barang' => $this->request->getVar('banyak_barang'),
-    //         'detail_pengiriman' => $this->request->getVar('detail_pengiriman'),
-    //         'biaya_pengiriman' => $this->request->getVar('biaya_pengiriman'),
+            'nama_toko' => $this->request->getVar('nama_toko'),
+            'alamat_toko' => $this->request->getVar('alamat_toko'),
+            'nomor_telepon_toko' => $this->request->getVar('nomor_telepon_toko'),
+            'nomor_telepon_kp_toko' => $this->request->getVar('nomor_telepon_kp_toko'),
+            'nama_kp_toko' => $this->request->getVar('nama_kp_toko'),
+            'biaya_pengiriman' => $this->request->getVar('biaya_pengiriman'),
+            'email_kp_toko' => $this->request->getVar('email_kp_toko'),
+            'username_kp_toko' => $this->request->getVar('username_kp_toko'),
+            'password_kp_toko' => $this->request->getVar('password_kp_toko'),
+            'foto_kp_toko' => $this->request->getVar('foto_kp_toko'),
 
-    //     ]);
-    //     return redirect()->back()->withInput();
-    // }
+        ]);
+        return redirect()->back()->withInput();
+    }
 }
