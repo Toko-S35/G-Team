@@ -29,45 +29,31 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-                        <thead>
-                            <tr>
-                                <th>NO</th>
-                                <th>Nama Toko</th>
-                                <th>Kepala Toko</th>
-                                <th>Email</th>
-                                <th>Username</th>
-                                <th>Password</th>
-                                <th>Details</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>NO</th>
-                                <th>Nama Toko</th>
-                                <th>Kepala Toko</th>
-                                <th>Email</th>
-                                <th>Username</th>
-                                <th>Password</th>
-                                <th>Details</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
+                    <tbody>
 
-                            <tr>
-                                <td>1</td>
-                                <td>Kasih Abadi</td>
-                                <td>Muhaymi Udin</td>
-                                <td>muhayminurdin28@gmail.com</td>
-                                <td>muhaymi69</td>
-                                <td>sampah123</td>
-                                <td><a href="<?= base_url('/details'); ?>">Details</a></td>
+                        <?php foreach ($toko as $k) : ?>
 
-                            </tr>
-                        </tbody>
+                        <div class="card-kp">
+                            <header class="card-h">
+                                <img class="img-t" src="<?= base_url(); ?>/img/<?= $k['foto_kp_toko']; ?>">
+                                <h3><?= $k['nama_kp_toko']; ?></h3>
+                                <vr>
+                            </header>
+                            <div class="card-f">
+                                <div class="card-d"><?= $k['nama_toko']; ?></div>
+                                <div class="card-d"><?= $k['nomor_telepon_kp_toko']; ?></div>
+                                <div class="card-d"><?= $k['nomor_telepon_kp_toko']; ?></div>
+                                <div class="card-d"><?= $k['alamat_toko']; ?></div>
 
-                    </table>
+
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
+
+                    </tbody>
+
+
                 </div>
             </div>
 
@@ -104,3 +90,30 @@ function openCity(cityName) {
 
 
 <?= $this->endSection(); ?>
+
+
+
+<!-- <thead>
+                            <tr>
+                                <th>NO</th>
+                                <th>Nama Toko</th>
+                                <th>Alamat Toko</th>
+                                <th>Nomor Telepon Toko</th>
+                                <th>Nomor Telepon Kepala Toko</th>
+                                <th>Nama Kepala Toko</th>
+                                <th>Foto Kepala Toko</th>
+
+
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>NO</th>
+                                <th>Nama Toko</th>
+                                <th>Alamat Toko</th>
+                                <th>Nomor Telepon Toko</th>
+                                <th>Nomor Telepon Kepala Toko</th>
+                                <th>Nama Kepala Toko</th>
+                                <th>Foto Kepala Toko</th>
+                            </tr>
+                        </tfoot> -->

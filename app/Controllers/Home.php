@@ -16,13 +16,7 @@ class Home extends BaseController
         return view('user/index', $data);
     }
 
-    public function toko()
-    {
-        $data = [
-            'title' => 'Kasih Abadi | S-35 | toko'
-        ];
-        return view('toko/toko', $data);
-    }
+
 
     public function input_toko()
     {

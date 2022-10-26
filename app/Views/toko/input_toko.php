@@ -8,7 +8,7 @@
 
         <div class="form-group">
             <label>Nama Toko</label>
-            <input type="text" name="toko" list="list" class="form-control">
+            <input type="text" name="nama_toko" list="list" class="form-control">
         </div>
 
         <div class="form-group">
@@ -17,15 +17,33 @@
         </div>
 
         <div class="form-group">
-            <label>No.Telepon</label>
-            <input type="text" name="no.telepon" class="form-control">
+            <label>No.Telepon Toko</label>
+            <input type="text" name="nomor_telepon_toko" class="form-control">
         </div>
-
+        <div class="form-group">
+            <label>No.Telepon Kepala Toko</label>
+            <input type="text" name="nomor_telepon_kp_toko" class="form-control">
+        </div>
         <div class="form-group">
             <label>Kepala Toko</label>
-            <input type="text" name="kepala_toko" class="form-control">
+            <input type="text" name="nama_kp_toko" class="form-control">
         </div>
-
+        <div class="form-group">
+            <label>email kepala Toko</label>
+            <input type="text" name="email_kp_toko" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>username kepala Toko</label>
+            <input type="text" name="username_kp_toko" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>password kepala Toko</label>
+            <input type="text" name="password_kp_toko" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>foto kepala Toko</label>
+            <input type="text" name="foto_kp_toko" class="form-control">
+        </div>
 
         <button type="submit" style="
                 cursor: pointer;
@@ -42,4 +60,3 @@
 
 
 </div>
-

@@ -47,12 +47,14 @@
 
                 <!-- Begin Page Content -->
 
-                <!-- 
-                <?php if (in_groups('kp-toko')) : ?>
-                <?= $this->renderSection('page-content-kp-toko'); ?>
-                <?php endif; ?> -->
 
+                <?php if (in_groups('kp-toko') || ('bos')) : ?>
+                <?= $this->renderSection('page-content-kp-toko'); ?>
+                <?php endif; ?>
+
+                <?php if (in_groups('bos')) : ?>
                 <?= $this->renderSection('page-content'); ?>
+                <?php endif; ?>
                 <!-- /.container-fluid -->
 
 

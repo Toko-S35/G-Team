@@ -1,5 +1,5 @@
 <ul class="navbar-nav bg-gradient-new sidebar sidebar-dark accordion" id="accordionSidebar">
-
+    <!-- <div style="transition: left 0.99s; position: fixed;"> -->
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
@@ -25,6 +25,7 @@
     </div>
 
     <?php endif; ?>
+
 
 
     <!-- Divider -->
@@ -62,7 +63,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href=<?= base_url('pengiriman'); ?>>
+        <a class="nav-link" href=<?= base_url('pengiriman_barang'); ?>>
             <i class="fas fa-truck"></i>
             <span>Pengiriman Barang</span></a>
     </li>
@@ -102,5 +103,7 @@
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
+
+    <!-- </div> -->
 
 </ul>
