@@ -8,14 +8,41 @@
         <div class="sidebar-brand-text mx-3"><?= user()->username; ?></div>
     </a>
 
+    <?php if (in_groups('bos')) : ?>
 
-    <!-- Heading -->
+    <!-- bos -->
+    <div class="sidebar-heading">
+        Bos Profile
+    </div>
+
+    <?php endif; ?>
+
+    <?php if (in_groups('kp-toko')) : ?>
+
+    <!-- KP-toko -->
     <div class="sidebar-heading">
         User Profile
     </div>
 
+    <?php endif; ?>
+
+
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
+
+    <?php if (in_groups('bos')) : ?>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href=<?= base_url('/bos'); ?>>
+            <i class="fas fa-home"></i>
+            <span>Home</span></a>
+    </li>
+
+    <?php endif; ?>
+
+
+    <?php if (in_groups('kp-toko')) : ?>
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">
@@ -23,6 +50,9 @@
             <i class="fas fa-home"></i>
             <span>Home</span></a>
     </li>
+
+    <?php endif; ?>
+
 
     <!-- Nav Item - My Profile -->
     <li class="nav-item">
@@ -32,17 +62,21 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href=<?= base_url('pengiriman_barang'); ?>>
+        <a class="nav-link" href=<?= base_url('pengiriman'); ?>>
             <i class="fas fa-truck"></i>
             <span>Pengiriman Barang</span></a>
     </li>
 
-    <!-- Nav Item - Edit Profile -->
-    <li class="nav-item">
-        <a class="nav-link" href=<?= base_url('keuangan'); ?>>
-            <i class="fas fa-donate"></i>
-            <span>Keuangan</span></a>
-    </li>
+    <div class="dropdown">
+        <li class="nav-item">
+            <a class="nav-link">
+                <i class="fas fa-donate"></i>
+                <span>Keuangan</span></a>
+        </li>
+        <div class="dropdown-content">
+            <p href="#"><?= $this->include('templates/menu-k'); ?></p>
+        </div>
+    </div>
 
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('toko'); ?>">

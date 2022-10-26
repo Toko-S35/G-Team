@@ -46,6 +46,12 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
+
+                <!-- 
+                <?php if (in_groups('kp-toko')) : ?>
+                <?= $this->renderSection('page-content-kp-toko'); ?>
+                <?php endif; ?> -->
+
                 <?= $this->renderSection('page-content'); ?>
                 <!-- /.container-fluid -->
 

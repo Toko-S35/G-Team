@@ -35,6 +35,14 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+// if (in_groups('kp-toko')) {
+//     $routes->get('/', 'Home::index');
+// } elseif (in_groups('bos')) {
+//     $routes->get('/', 'bos::index');
+// } else {
+//     $routes->get('/', 'Home::index');
+// }
+
 $routes->get('/', 'Home::index');
 $routes->get('/inventaris', 'C_inventaris::inventaris');
 $routes->post('/save', 'C_inventaris::save');
@@ -44,6 +52,10 @@ $routes->get('/toko', 'Home::toko');
 $routes->get('/input_toko', 'Home::input_toko');
 $routes->get('/details', 'Home::details');
 $routes->get('/keuangan', 'Home::keuangan');
+
+$routes->get('/bos', 'bos::index', ['filter' => 'role:bos']);
+$routes->get('/bos/index', 'bos::index', ['filter' => 'role:bos']);
+
 
 
 
