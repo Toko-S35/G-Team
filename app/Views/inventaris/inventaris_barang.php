@@ -4,8 +4,9 @@
 
 
 <div class="page">
-    <button class="btn_tampil" onclick="openCity('List')">List Barang</button>
-    <button class="btn_tampil" onclick="openCity('Input')">Input Barang</button>
+    <button class="btn_tampil" onclick="ivt_brg()">Inventaris Barang</button>
+    <button class="btn_tampil" onclick="ipt_brg1()">Input Jenis Barang</button>
+    <button class="btn_tampil" onclick="ipt_brg2()">Input Tipe Barang</button>
 
     <hr>
 
@@ -35,35 +36,54 @@
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>Harga Jual</th>
-                                <th>Tanggal</th>
-                                <th>Harga Modal</th>
+                                <th>Nama Jenis Barang</th>
                                 <th>Banyak Barang</th>
+                                <th>Harga Beli</th>
+                                <th>Harga Jual</th>
+                                <th>Keterangan</th>
+
+                                <th>Nama Tipe Barang</th>
+                                <th>Banyak Barang (Tipe)</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>NO</th>
-                                <th>Harga Jual</th>
-                                <th>Tanggal</th>
-                                <th>Harga Modal</th>
+                                <th>Nama Jenis Barang</th>
                                 <th>Banyak Barang</th>
+                                <th>Harga Beli</th>
+                                <th>Harga Jual</th>
+                                <th>Keterangan</th>
+
+                                <th>Nama Tipe Barang</th>
+                                <th>Banyak Barang (Tipe)</th>
                             </tr>
                         </tfoot>
                         <tbody>
                             <?php $i = 1 ?>
-                            <?php foreach ($barang as $k) : ?>
+                            <?php foreach ($jenisbarang as $k) : ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $k['harga_jual']; ?></td>
-                                <td><?= $k['tanggal']; ?></td>
-                                <td><?= $k['harga_modal']; ?></td>
+                                <td><?= $k['nama_jenis_barang']; ?></td>
                                 <td><?= $k['banyak_barang']; ?></td>
+                                <td><?= $k['harga_beli']; ?></td>
+                                <td><?= $k['harga_jual']; ?></td>
+                                <td><?= $k['keterangan']; ?></td>
+                                <?php endforeach; ?>
+
+
+                                <td><?= "|"; ?><?php foreach ($tipebarang as $t) : ?>
+                                    <?= $t['nama_tipe_barang'];
+                                                    echo " |"; ?> <?php endforeach; ?>
+                                </td>
+
+                                <td><?= "|"; ?><?php foreach ($tipebarang as $t) : ?>
+                                    <?= $t['banyak_barang_tipe'];
+                                                    echo " |"; ?><?php endforeach; ?>
+                                </td>
 
                             </tr>
                         </tbody>
-                        <?php endforeach; ?>
-
                     </table>
                 </div>
             </div>
@@ -78,26 +98,21 @@
 
 
 </div>
-<div class="page">
-    <div id="Input" class="w3-container w3-display-container city" style="display:none">
-        <span onclick="this.parentElement.style.display='none'"
-            class="w3-button w3-midle w3-display-topright">&times;</span>
 
-        <p><?= $this->include('inventaris/Input_barang'); ?></p>
-    </div>
-</div>
 
 <script>
-function openCity(cityName) {
-    var i;
-    var x = document.getElementsByClassName("city");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    document.getElementById(cityName).style.display = "block";
+function ivt_brg() {
+    location.href = "<?= base_url('/inventaris'); ?>"
+}
+
+function ipt_brg1() {
+    location.href = "<?= base_url('/input_barang_j'); ?>"
+}
+
+function ipt_brg2() {
+    location.href = "<?= base_url('/input_barang_t'); ?>"
 }
 </script>
-
 
 
 <?= $this->endSection(); ?>

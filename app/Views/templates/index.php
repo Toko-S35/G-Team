@@ -55,8 +55,12 @@
                 <?php if (in_groups('bos')) : ?>
                 <?= $this->renderSection('page-content'); ?>
                 <?php endif; ?>
+
+                <?php if (in_groups('kp-gudang')) : ?>
+                <?php endif; ?>
                 <!-- /.container-fluid -->
 
+                <?= $this->renderSection('page-content'); ?>
 
                 <!-- End of Main Content -->
 

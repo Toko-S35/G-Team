@@ -46,7 +46,11 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 $routes->get('/inventaris', 'C_inventaris::inventaris');
-$routes->post('/save', 'C_inventaris::save');
+$routes->get('/input_barang_j', 'C_inventaris::input_barang_j');
+$routes->get('/input_barang_t', 'C_inventaris::input_barang_t');
+$routes->post('/save_j', 'C_inventaris::save_j');
+$routes->post('/save_t', 'C_inventaris::save_t');
+
 
 $routes->get('/pengiriman_barang', 'C_ekspedisi::pengiriman_barang');
 $routes->post('/simpan', 'C_ekspedisi::simpan');
@@ -62,6 +66,9 @@ $routes->get('/keuangan', 'Home::keuangan');
 
 $routes->get('/bos', 'bos::index', ['filter' => 'role:bos']);
 $routes->get('/bos/index', 'bos::index', ['filter' => 'role:bos']);
+
+$routes->get('/kp-gudang', 'kpGudang::index', ['filter' => 'role:kp-gudang']);
+$routes->get('/kp-gudang/index', 'kpGudang::index', ['filter' => 'role:kp-gudang']);
 
 
 

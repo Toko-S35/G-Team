@@ -21,10 +21,21 @@
 
     <!-- KP-toko -->
     <div class="sidebar-heading">
-        User Profile
+        Kepala Toko Profile
     </div>
 
     <?php endif; ?>
+
+    <?php if (in_groups('kp-gudang')) : ?>
+
+    <!-- KP-gudang -->
+    <div class="sidebar-heading">
+        Kepala Gudang Profile
+    </div>
+
+    <?php endif; ?>
+
+
 
 
 
@@ -44,6 +55,18 @@
 
 
     <?php if (in_groups('kp-toko')) : ?>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" href=<?= base_url('/'); ?>>
+            <i class="fas fa-home"></i>
+            <span>Home</span></a>
+    </li>
+
+    <?php endif; ?>
+
+
+    <?php if (in_groups('kp-gudang')) : ?>
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">

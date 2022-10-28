@@ -2,38 +2,87 @@
 
 namespace App\Controllers;
 
-use App\Models\BarangModel;
+use App\Models\jenisBarangModel;
+use App\Models\tipeBarangModel;
+
 
 class C_inventaris extends BaseController
 {
-    protected $barangModel;
+    protected $jenisbarangModel;
+    protected $tipebarangModel;
+
 
     public function __construct()
     {
-        $this->barangModel = new BarangModel();
+        $this->jenisbarangModel = new jenisBarangModel();
+        $this->tipebarangModel = new tipeBarangModel();
     }
 
 
     public function inventaris()
     {
-        $barang = $this->barangModel->findAll();
+        $jenisbarang = $this->jenisbarangModel->findAll();
+        $tipebarang = $this->tipebarangModel->findAll();
+
         $data = [
             'title' => 'Kasih Abadi | S-35 |inventaris',
-            'barang' => $barang
+            'jenisbarang' => $jenisbarang,
+            'tipebarang' => $tipebarang
         ];
 
         return view('inventaris/inventaris_barang', $data);
     }
 
+    public function input_barang_j()
+    {
+        $jenisbarang = $this->jenisbarangModel->findAll();
 
-    public function save()
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |inventaris',
+            'jenisbarang' => $jenisbarang,
+        ];
+
+        return view('inventaris/input_barang_j', $data);
+    }
+
+    public function input_barang_t()
+    {
+        $jenisbarang = $this->jenisbarangModel->findAll();
+        $tipebarang = $this->tipebarangModel->findAll();
+
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |inventaris',
+            'jenisbarang' => $jenisbarang,
+            'tipebarang' => $tipebarang,
+        ];
+
+        return view('inventaris/input_barang_t', $data);
+    }
+
+
+    public function save_j()
 
     {
-        $this->barangModel->save([
+        $this->jenisbarangModel->save([
+            'nama_jenis_barang' => $this->request->getVar('nama_jenis_barang'),
+            'harga_beli' => $this->request->getVar('harga_beli'),
             'harga_jual' => $this->request->getVar('harga_jual'),
-            'tanggal' => $this->request->getVar('tanggal'),
-            'harga_modal' => $this->request->getVar('harga_modal'),
             'banyak_barang' => $this->request->getVar('banyak_barang'),
+            'keterangan' => $this->request->getVar('keterangan'),
+        ]);
+
+        return redirect()->back()->withInput();
+    }
+
+
+    public function save_t()
+
+    {
+
+        $this->tipebarangModel->save([
+            'nama_tipe_barang' => $this->request->getVar('nama_tipe_barang'),
+            'banyak_barang-tipe' => $this->request->getVar('banyak_barang_tipe'),
+            'id_jenis_barang' => $this->request->getVar('id_jenis_barang'),
 
         ]);
 
