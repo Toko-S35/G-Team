@@ -20,7 +20,7 @@
         <div class="col-sm-4">
 
             <form action="<?= base_url('/update_j/' . $jenisbarang['id_jenis_barang']); ?>" method="post">
-                <input type="hidden" name="_method" value="PUT" />
+                <input type="hidden" name="_method" value="PUT" /><?= csrf_field(); ?>
 
                 <div class="form-group">
                     <label>Nama Jenis Barang</label>

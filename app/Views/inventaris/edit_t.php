@@ -21,7 +21,7 @@
 
 
             <form action="<?= base_url('/update_t/' . $tipebarang['id_tipe_barang']); ?>" method="post">
-                <input type="hidden" name="_method" value="PUT" />
+                <input type="hidden" name="_method" value="PUT" /><?= csrf_field(); ?>
                 <div class="form-group">
                     <label>Nama Jenis Barang</label>
                     <select name="id_jenis_barang" class="form-control">
