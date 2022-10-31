@@ -26,9 +26,8 @@
 
                 <div class="form-group">
                     <label>Nama Jenis Barang</label>
-                    <input type="text" name="nama_jenis_barang" value="<?= old('nama_jenis_barang') ?>"
-                        class="form-control <?= ($validation->hasError('nama_jenis_barang')) ?
-                                                                                                                                'is-invalid' : ''; ?>">
+                    <input type="text" name="nama_jenis_barang" class="form-control <?= ($validation->hasError('nama_jenis_barang')) ?
+                                                                                        'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('nama_jenis_barang'); ?>
                     </div>
@@ -36,9 +35,8 @@
 
                 <div class="form-group">
                     <label>Harga Beli</label>
-                    <input type="text" name="harga_beli" value="<?= old('harga_beli') ?>"
-                        class="form-control <?= ($validation->hasError('harga_beli')) ?
-                                                                                                                    'is-invalid' : ''; ?>">
+                    <input type="text" name="harga_beli" class="form-control <?= ($validation->hasError('harga_beli')) ?
+                                                                                    'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('harga_beli'); ?>
                     </div>
@@ -46,9 +44,8 @@
 
                 <div class="form-group">
                     <label>Harga jual</label>
-                    <input type="text" name="harga_jual" value="<?= old('harga_jual') ?>"
-                        class="form-control <?= ($validation->hasError('harga_jual')) ?
-                                                                                                                    'is-invalid' : ''; ?>">
+                    <input type="text" name="harga_jual" class="form-control <?= ($validation->hasError('harga_jual')) ?
+                                                                                    'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('harga_jual'); ?>
                     </div>
@@ -56,9 +53,8 @@
 
                 <div class="form-group">
                     <label>Banyak Barang</label>
-                    <input type="text" name="banyak_barang" value="<?= old('banyak_barang') ?>"
-                        class="form-control <?= ($validation->hasError('banyak_barang')) ?
-                                                                                                                        'is-invalid' : ''; ?>">
+                    <input type="text" name="banyak_barang" class="form-control <?= ($validation->hasError('banyak_barang')) ?
+                                                                                    'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('banyak_barang'); ?>
                     </div>
@@ -66,9 +62,8 @@
 
                 <div class="form-group">
                     <label>Keterangan</label>
-                    <input type="text" name="keterangan" value="<?= old('keterangan') ?>"
-                        class="form-control <?= ($validation->hasError('keterangan')) ?
-                                                                                                                    'is-invalid' : ''; ?>">
+                    <input type="text" name="keterangan" class="form-control <?= ($validation->hasError('keterangan')) ?
+                                                                                    'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('keterangan'); ?>
                     </div>

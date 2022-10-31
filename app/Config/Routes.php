@@ -48,8 +48,17 @@ $routes->get('/', 'Home::index');
 $routes->get('/inventaris', 'C_inventaris::inventaris');
 $routes->get('/input_barang_j', 'C_inventaris::input_barang_j');
 $routes->get('/input_barang_t', 'C_inventaris::input_barang_t');
+
 $routes->post('/save_j', 'C_inventaris::save_j');
+$routes->delete("/delete_j/(:num)", "C_inventaris::delete_j/$1");
+
+
 $routes->post('/save_t', 'C_inventaris::save_t');
+$routes->delete("/delete_t/(:num)", "C_inventaris::delete_t/$1");
+$routes->get("/edit_t/(:num)", "C_inventaris::edit_t/$1");
+$routes->post("/edit_t/(:num)", "C_inventaris::edit_t/$1");
+$routes->put("/update_t/(:num)", "C_inventaris::update_t/$1");
+
 
 
 $routes->get('/pengiriman_barang', 'C_ekspedisi::pengiriman_barang');

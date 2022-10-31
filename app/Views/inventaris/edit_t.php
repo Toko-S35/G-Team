@@ -4,9 +4,6 @@
 
 
 <div class="page">
-    <button class="btn_tampil" onclick="ivt_brg()">Inventaris Barang</button>
-    <button class="btn_tampil" onclick="ipt_brg1()">Jenis Barang Baru</button>
-    <button class="btn_tampil" onclick="ipt_brg2()">Tipe Barang Baru</button>
 
     <hr>
 
@@ -17,19 +14,18 @@
 
 
         <div class="ctnr">
-            <p>Form Tambah Barang</p>
+            <p>Form Ubah Data Barang</p>
         </div>
         <hr>
         <div class="col-sm-4">
 
 
-            <form action="<?= base_url("/save_t") ?>" method="post">
-
+            <form action="<?= base_url('/update_t/' . $tipebarang['id_tipe_barang']); ?>" method="post">
+                <input type="hidden" name="_method" value="PUT" />
                 <div class="form-group">
                     <label>Nama Jenis Barang</label>
                     <select name="id_jenis_barang" class="form-control">
                         <?php foreach ($jenisbarang as $k) : ?>
-
                         <option value="<?= $k['id_jenis_barang']; ?>"><?= $k['nama_jenis_barang']; ?></option>
 
                         <?php endforeach; ?>
@@ -38,13 +34,11 @@
 
                 </div>
 
-
-
                 <div class="form-group">
                     <label>Nama Tipe Barang</label>
-                    <input type="text" name="nama_tipe_barang" value="<?= old('nama_tipe_barang') ?>"
+                    <input type="text" name="nama_tipe_barang" value="<?= $tipebarang['nama_tipe_barang']; ?>"
                         class="form-control <?= ($validation->hasError('nama_tipe_barang')) ?
-                                                                                                                                'is-invalid' : ''; ?>">
+                                                                                                                                        'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('nama_tipe_barang'); ?>
                     </div>
@@ -52,16 +46,17 @@
 
                 <div class="form-group">
                     <label>Banyak Barang (Tipe)</label>
-                    <input type="text" name="banyak_barang_tipe" value="<?= old('banyak_barang_tipe') ?>"
+                    <input type="text" name="banyak_barang_tipe" value="<?= $tipebarang['banyak_barang_tipe']; ?>"
                         class="form-control <?= ($validation->hasError('banyak_barang_tipe')) ?
-                                                                                                                                    'is-invalid' : ''; ?>">
+                                                                                                                                            'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('banyak_barang_tipe'); ?>
                     </div>
                 </div>
 
 
-                <button type="submit" class="btn_tampil">Tambah Barang</button>
+
+                <button type="submit" class="btn_tampil">Ubah Data Barang</button>
             </form>
 
 
@@ -70,23 +65,6 @@
 
 
 </div>
-
-
-
-<script>
-function ivt_brg() {
-    location.href = "<?= base_url('/inventaris'); ?>"
-}
-
-function ipt_brg1() {
-    location.href = "<?= base_url('/input_barang_j'); ?>"
-}
-
-function ipt_brg2() {
-    location.href = "<?= base_url('/input_barang_t'); ?>"
-}
-</script>
-
 
 
 <?= $this->endSection(); ?>
