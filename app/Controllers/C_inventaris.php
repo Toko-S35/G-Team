@@ -182,7 +182,6 @@ class C_inventaris extends BaseController
     }
 
 
-
     public function edit_t($id_tipe_barang)
     {
         $getjo = $this->tipebarangModel->getJoin()->getResult();
@@ -198,6 +197,23 @@ class C_inventaris extends BaseController
         ];
 
         return view('inventaris/edit_t', $data);
+    }
+
+
+
+
+    public function edit_j($id_jenis_barang)
+    {
+        $jenisbarang = $this->jenisbarangModel->find($id_jenis_barang);
+
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Edit Inventaris',
+            'jenisbarang' => $jenisbarang,
+            'validation' => \Config\Services::validation(),
+
+        ];
+
+        return view('inventaris/edit_j', $data);
     }
 
 
@@ -233,6 +249,63 @@ class C_inventaris extends BaseController
 
         $this->tipebarangModel->update($id_tipe_barang, $data);
         session()->setFlashdata('pesan_t', 'data berhasil diubah');
+
+        return redirect()->to(base_url('/inventaris'));
+    }
+
+    public function update_j($id_jenis_barang)
+    {
+        if (!$this->validate([
+            'nama_jenis_barang' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                ]
+            ],
+            'harga_beli' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                    'numeric' => 'input harus angka'
+                ]
+            ],
+            'harga_jual' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                    'numeric' => 'input harus angka'
+                ]
+            ],
+            'banyak_barang' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                    'numeric' => 'input harus angka'
+                ]
+            ],
+            'keterangan' => [
+                'rules' => 'max_length[250]',
+                'errors' => [
+                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
+                ]
+            ],
+
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+
+        $data = [
+            'nama_jenis_barang' => $this->request->getVar('nama_jenis_barang'),
+            'harga_beli' => $this->request->getVar('harga_beli'),
+            'harga_jual' => $this->request->getVar('harga_jual'),
+            'banyak_barang' => $this->request->getVar('banyak_barang'),
+            'keterangan' => $this->request->getVar('keterangan'),
+        ];
+
+        $this->jenisbarangModel->update($id_jenis_barang, $data);
+        session()->setFlashdata('pesan_j', 'data berhasil diubah');
+
 
         return redirect()->to(base_url('/inventaris'));
     }

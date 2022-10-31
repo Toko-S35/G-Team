@@ -51,6 +51,9 @@ $routes->get('/input_barang_t', 'C_inventaris::input_barang_t');
 
 $routes->post('/save_j', 'C_inventaris::save_j');
 $routes->delete("/delete_j/(:num)", "C_inventaris::delete_j/$1");
+$routes->get("/edit_j/(:num)", "C_inventaris::edit_j/$1");
+$routes->post("/edit_j/(:num)", "C_inventaris::edit_j/$1");
+$routes->put("/update_j/(:num)", "C_inventaris::update_j/$1");
 
 
 $routes->post('/save_t', 'C_inventaris::save_t');

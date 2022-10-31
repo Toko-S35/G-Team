@@ -65,6 +65,16 @@
                             <td>
 
 
+
+                                <form action="<?= base_url('/edit_j/' . $k['id_jenis_barang']); ?>" method="post"
+                                    class="d-inline">
+                                    <?= csrf_field(); ?>
+                                    <input type="hidden" name="_method" value="UPDATE">
+                                    <button type="submit" class="btn btn-primary btn-circle " title="Ubah">
+                                        <i class=" fas fa-edit"></i>
+                                    </button>
+                                </form>
+
                                 <form action="<?= base_url('/delete_j/' . $k['id_jenis_barang']); ?>" method="post"
                                     class="d-inline">
                                     <?= csrf_field(); ?>
@@ -133,8 +143,6 @@
                             <td>
                                 <?php echo $g->nama_jenis_barang; ?>
                             <td>
-
-
 
 
                                 <form action="<?= base_url('/edit_t/' . $g->id_tipe_barang); ?>" method="post"

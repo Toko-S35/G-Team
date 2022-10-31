@@ -14,7 +14,7 @@
 
 
         <div class="ctnr">
-            <p>Form Ubah Data Barang</p>
+            <p>Form Ubah Tipe Barang</p>
         </div>
         <hr>
         <div class="col-sm-4">
