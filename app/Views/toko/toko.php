@@ -38,7 +38,7 @@
                             <header class="card-h">
                                 <img class="img-t" src="<?= base_url(); ?>/img/<?= $k['foto_kp_toko']; ?>">
                                 <h3><?= $k['nama_kp_toko']; ?></h3>
-                                <vr>
+                                <hr>
                             </header>
                             <div class="card-f">
                                 <div class="card-d"><?= $k['nama_toko']; ?></div>
@@ -49,7 +49,9 @@
 
                             </div>
                         </div>
+                        <a href=<?= base_url('/details'); ?> class="btn_tampil">Detail</a>
                         <?php endforeach; ?>
+
 
                     </tbody>
 

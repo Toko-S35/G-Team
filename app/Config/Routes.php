@@ -73,6 +73,8 @@ $routes->post('/savet', 'C_toko::savet');
 // $routes->get('/input_toko', 'Home::input_toko');
 
 $routes->get('/details', 'Home::details');
+$routes->get('/edit_detail', 'Home::edit_detail');
+
 
 $routes->get('/keuangan', 'Home::keuangan');
 

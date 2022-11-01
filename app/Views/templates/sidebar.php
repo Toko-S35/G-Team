@@ -85,11 +85,22 @@
             <span>Inventaris Barang</span></a>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link" href=<?= base_url('pengiriman_barang'); ?>>
-            <i class="fas fa-truck"></i>
-            <span>Pengiriman Barang</span></a>
-    </li>
+
+    <div class="dropdown">
+
+        <li class="nav-item">
+            <a class="nav-link">
+                <i class="fas fa-truck"></i>
+                <span>Ekspedisi</span></a>
+        </li>
+
+        <div class="dropdown-content">
+            <p href="#"><?= $this->include('templates/menu-e'); ?></p>
+        </div>
+
+    </div>
+
+
 
     <div class="dropdown">
         <li class="nav-item">

@@ -34,6 +34,15 @@ class Home extends BaseController
         return view('toko/details', $data);
     }
 
+    public function edit_detail()
+    {
+        $data = [
+            'title' => 'Kasih Abadi | S-35 | edit_detail'
+        ];
+        return view('toko/edit_detail', $data);
+    }
+
+
     public function keuangan()
     {
         $data = [
