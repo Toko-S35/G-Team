@@ -72,6 +72,7 @@
     border: solid;
     background: rgb(244, 241, 241);
     border-color: #171C7B;
+    padding: 20px;
 }
 
 .card-f {
@@ -85,6 +86,25 @@
 
 .img-t {
     max-width: 100px;
+}
+
+.card-kp-n {
+    width: 400px;
+    height: 300px;
+    background: #F14080;
+    border-radius: 30px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    /* overflow: scroll; */
+}
+
+.img-n {
+    max-width: 800px;
+    justify-items: center;
+    display: inline;
+    flex-direction: row;
+    /* float: right; */
 }
 
 .card-d {

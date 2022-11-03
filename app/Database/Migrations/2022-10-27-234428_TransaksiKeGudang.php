@@ -15,14 +15,22 @@ class TransaksiKeGudang extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'asal_barang' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+            ],
             'tanggal' => [
-                'type'       => 'DATETIME',
+                'type'       => 'DATE',
             ],
             'biaya_ekspedisi' => [
                 'type'       => 'INT',
                 'unsigned'   => true,
             ],
             'keterangan' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+            ],
+            'nota' => [
                 'type'       => 'VARCHAR',
                 'constraint'     => 255,
             ],

@@ -1,5 +1,5 @@
     <li class="nav-item">
-        <a class="nav-link" href=<?= base_url('pengiriman_barang'); ?>>
+        <a class="nav-link" href=<?= base_url('gudang'); ?>>
             <i class="fas fa-donate"></i>
             <span>Transaksi Ke Gudang</span></a>
     </li>

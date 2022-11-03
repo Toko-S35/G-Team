@@ -45,6 +45,7 @@ $routes->set404Override();
 
 $routes->get('/', 'Home::index');
 
+// iventaris
 $routes->get('/inventaris', 'C_inventaris::inventaris');
 $routes->get('/input_barang_j', 'C_inventaris::input_barang_j');
 $routes->get('/input_barang_t', 'C_inventaris::input_barang_t');
@@ -62,10 +63,33 @@ $routes->get("/edit_t/(:num)", "C_inventaris::edit_t/$1");
 $routes->post("/edit_t/(:num)", "C_inventaris::edit_t/$1");
 $routes->put("/update_t/(:num)", "C_inventaris::update_t/$1");
 
+// end iventaris
 
+
+// transaksi
+
+$routes->get('/gudang', 'C_ekspedisi::gudang');
+$routes->get('/input_gudang', 'C_ekspedisi::input_gudang');
+// 
+$routes->post('/simpan_gudang', 'C_ekspedisi::simpan_gudang');
+$routes->get('/detail_gudang', 'C_ekspedisi::detail_gudang');
+// 
+$routes->get("/detail_gudang/(:num)", "C_ekspedisi::transaksi_gudang_detail/$1");
+$routes->delete("/delete_g/(:num)", "C_ekspedisi::delete_g/$1");
+// 
+$routes->post("/edit_g/(:num)", "C_ekspedisi::edit_g/$1");
+$routes->get("/edit_g/(:num)", "C_ekspedisi::edit_g/$1");
+$routes->put("/update_g/(:num)", "C_ekspedisi::update_g/$1");
+// 
+
+
+
+// x
 
 $routes->get('/pengiriman_barang', 'C_ekspedisi::pengiriman_barang');
 $routes->post('/simpan', 'C_ekspedisi::simpan');
+
+// end transaksi
 
 $routes->get('/toko', 'C_toko::toko');
 $routes->post('/savet', 'C_toko::savet');

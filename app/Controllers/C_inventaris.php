@@ -50,21 +50,6 @@ class C_inventaris extends BaseController
         return view('inventaris/input_barang_j', $data);
     }
 
-    public function input_barang_t()
-    {
-        $jenisbarang = $this->jenisbarangModel->findAll();
-        $tipebarang = $this->tipebarangModel->findAll();
-
-        $data = [
-            'title' => 'Kasih Abadi | S-35 |inventaris',
-            'jenisbarang' => $jenisbarang,
-            'tipebarang' => $tipebarang,
-            'validation' => \Config\Services::validation(),
-        ];
-
-        return view('inventaris/input_barang_t', $data);
-    }
-
 
     public function save_j()
 
@@ -124,6 +109,23 @@ class C_inventaris extends BaseController
 
 
         return redirect()->to(base_url('/inventaris'));
+    }
+
+
+
+    public function input_barang_t()
+    {
+        $jenisbarang = $this->jenisbarangModel->findAll();
+        $tipebarang = $this->tipebarangModel->findAll();
+
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |inventaris',
+            'jenisbarang' => $jenisbarang,
+            'tipebarang' => $tipebarang,
+            'validation' => \Config\Services::validation(),
+        ];
+
+        return view('inventaris/input_barang_t', $data);
     }
 
 
