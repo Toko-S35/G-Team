@@ -15,6 +15,11 @@ class JenisBarang extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'id_transaksi' => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+                'unsigned'       => true,
+            ],
             'nama_jenis_barang' => [
                 'type'       => 'VARCHAR',
                 'constraint'     => 255,
@@ -46,6 +51,7 @@ class JenisBarang extends Migration
 
         ]);
         $this->forge->addKey('id_jenis_barang', true);
+        $this->forge->addForeignKey('id_transaksi', 'transaksi_ke_gudang', 'id_transaksi', 'CASCADE', 'CASCADE');
         $this->forge->createTable('jenis_barang');
     }
 

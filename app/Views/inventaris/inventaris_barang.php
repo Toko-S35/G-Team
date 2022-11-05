@@ -41,6 +41,7 @@
                     <thead>
                         <tr>
                             <th>NO</th>
+                            <th>Transaksi</th>
                             <th>Nama Jenis Barang</th>
                             <th>Banyak Barang</th>
                             <th>Harga Beli</th>
@@ -53,20 +54,21 @@
 
                     <tbody>
                         <?php $i = 1 ?>
-                        <?php foreach ($jenisbarang as $k) : ?>
+                        <?php foreach ($gabungj as $g) : ?>
 
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $k['nama_jenis_barang']; ?></td>
-                            <td><?= $k['banyak_barang']; ?></td>
-                            <td><?= $k['harga_beli']; ?></td>
-                            <td><?= $k['harga_jual']; ?></td>
-                            <td><?= $k['keterangan']; ?></td>
+                            <td><?php echo $g->asal_barang;?> <br> <?php echo $g->tanggal; ?></td>
+                            <td><?php echo $g->nama_jenis_barang; ?></td>
+                            <td><?php echo $g->banyak_barang; ?></td>
+                            <td><?php echo $g->harga_beli; ?></td>
+                            <td><?php echo $g->harga_jual; ?></td>
+                            <td><?php echo $g->nama_jenis_barang; ?></td>
                             <td>
 
 
 
-                                <form action="<?= base_url('/edit_j/' . $k['id_jenis_barang']); ?>" method="post"
+                                <form action="<?= base_url('/edit_j/' . $g->id_jenis_barang); ?>" method="post"
                                     class="d-inline">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="UPDATE">
@@ -75,7 +77,7 @@
                                     </button>
                                 </form>
 
-                                <form action="<?= base_url('/delete_j/' . $k['id_jenis_barang']); ?>" method="post"
+                                <form action="<?= base_url('/delete_j/' . $g->id_jenis_barang); ?>" method="post"
                                     class="d-inline">
                                     <?= csrf_field(); ?>
                                     <input type="hidden" name="_method" value="DELETE">

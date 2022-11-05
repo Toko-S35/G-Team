@@ -24,6 +24,19 @@
 
             <form action="<?= base_url("/save_j") ?>" method="post">
 
+            <div class="form-group">
+                    <label>Transaksi</label>
+                    <select name="id_transaksi" class="form-control">
+                        <?php foreach ($gudang as $k) : ?>
+
+                        <option value="<?= $k['id_transaksi']; ?>"> <?= $k['asal_barang']; ?>(<?= $k['tanggal']; ?>) </option>
+
+                        <?php endforeach; ?>
+
+                    </select>
+
+                </div>
+
                 <div class="form-group">
                     <label>Nama Jenis Barang</label>
                     <input type="text" name="nama_jenis_barang" value="<?= old('nama_jenis_barang') ?>"

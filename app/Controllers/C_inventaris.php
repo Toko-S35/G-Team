@@ -4,18 +4,22 @@ namespace App\Controllers;
 
 use App\Models\jenisBarangModel;
 use App\Models\tipeBarangModel;
+use App\Models\ekspedisiModel;
 
 
 class C_inventaris extends BaseController
 {
     protected $jenisbarangModel;
     protected $tipebarangModel;
+    protected $ekspedisiModel;
+
 
 
     public function __construct()
     {
         $this->jenisbarangModel = new jenisBarangModel();
         $this->tipebarangModel = new tipeBarangModel();
+        $this->ekspedisiModel = new ekspedisiModel();
         $this->validation = \Config\Services::validation();
     }
 
@@ -23,6 +27,7 @@ class C_inventaris extends BaseController
     public function inventaris()
     {
         $getjo = $this->tipebarangModel->getJoin()->getResult();
+        $getjo_gdg = $this->jenisbarangModel->getJoin()->getResult();
         $jenisbarang = $this->jenisbarangModel->findAll();
         $tipebarang = $this->tipebarangModel->findAll();
 
@@ -30,7 +35,8 @@ class C_inventaris extends BaseController
             'title' => 'Kasih Abadi | S-35 |inventaris',
             'jenisbarang' => $jenisbarang,
             'tipebarang' => $tipebarang,
-            'gabung' => $getjo
+            'gabung' => $getjo,
+            'gabungj' => $getjo_gdg,
 
         ];
 
@@ -40,10 +46,14 @@ class C_inventaris extends BaseController
     public function input_barang_j()
     {
 
+        $transaksi_ke_gudang = $this->ekspedisiModel->findAll();
+        $getjo_gdg = $this->jenisbarangModel->getJoin()->getResult();
         $jenisbarang = $this->jenisbarangModel->findAll();
         $data = [
             'title' => 'Kasih Abadi | S-35 |inventaris',
             'jenisbarang' => $jenisbarang,
+            'gabungj' => $getjo_gdg,
+            'gudang' => $transaksi_ke_gudang,
             'validation' => \Config\Services::validation(),
         ];
 
@@ -98,11 +108,13 @@ class C_inventaris extends BaseController
 
 
         $this->jenisbarangModel->save([
+            'id_transaksi' => $this->request->getVar('id_transaksi'),
             'nama_jenis_barang' => $this->request->getVar('nama_jenis_barang'),
             'harga_beli' => $this->request->getVar('harga_beli'),
             'harga_jual' => $this->request->getVar('harga_jual'),
             'banyak_barang' => $this->request->getVar('banyak_barang'),
             'keterangan' => $this->request->getVar('keterangan'),
+
         ]);
 
         session()->setFlashdata('pesan_j', 'data berhasil ditambahkan');
@@ -207,10 +219,12 @@ class C_inventaris extends BaseController
     public function edit_j($id_jenis_barang)
     {
         $jenisbarang = $this->jenisbarangModel->find($id_jenis_barang);
+        $transaksi_ke_gudang = $this->ekspedisiModel->findAll();
 
         $data = [
             'title' => 'Kasih Abadi | S-35 |Edit Inventaris',
             'jenisbarang' => $jenisbarang,
+            'gudang' => $transaksi_ke_gudang,
             'validation' => \Config\Services::validation(),
 
         ];
@@ -298,6 +312,7 @@ class C_inventaris extends BaseController
 
 
         $data = [
+            'id_transaksi' => $this->request->getVar('id_transaksi'),
             'nama_jenis_barang' => $this->request->getVar('nama_jenis_barang'),
             'harga_beli' => $this->request->getVar('harga_beli'),
             'harga_jual' => $this->request->getVar('harga_jual'),

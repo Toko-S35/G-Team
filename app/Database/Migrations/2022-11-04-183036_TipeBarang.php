@@ -39,7 +39,7 @@ class TipeBarang extends Migration
 
         ]);
         $this->forge->addKey('id_tipe_barang', true);
-        $this->forge->addForeignKey('id_jenis_barang', 'jenis_barang', 'id_jenis_barang', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_jenis_barang', 'jenis_barang', 'id_jenis_barang', 'RESCRICT', 'RESCRICT');
         $this->forge->createTable('tipe_barang');
     }
 

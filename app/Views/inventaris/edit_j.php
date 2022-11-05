@@ -22,6 +22,16 @@
             <form action="<?= base_url('/update_j/' . $jenisbarang['id_jenis_barang']); ?>" method="post">
                 <input type="hidden" name="_method" value="PUT" /><?= csrf_field(); ?>
 
+                <label>Transaksi</label>
+                    <select name="id_transaksi" class="form-control">
+                        <?php foreach ($gudang as $k) : ?>
+                        <option value="<?= $k['id_transaksi']; ?>"><?= $k['asal_barang']; ?>(<?= $k['tanggal']; ?>)</option>
+
+                        <?php endforeach; ?>
+
+                    </select>
+
+
                 <div class="form-group">
                     <label>Nama Jenis Barang</label>
                     <input type="text" name="nama_jenis_barang" value="<?= $jenisbarang['nama_jenis_barang']; ?>"

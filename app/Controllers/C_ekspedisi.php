@@ -190,6 +190,7 @@ class C_ekspedisi extends BaseController
         return view('transaksi/detail_gudang', $data);
     }
 
-    // 
+    // ///////////////////////////////////////////////////////////////////
+    
 
 }
