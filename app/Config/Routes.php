@@ -85,9 +85,16 @@ $routes->put("/update_g/(:num)", "C_ekspedisi::update_g/$1");
 
 
 // x
+$routes->get('/ekspedisi_toko', 'C_ekspedisi::ekspedisi_toko');
+$routes->get('/input_ekspedisi_toko', 'C_ekspedisi::input_ekspedisi_toko');
+$routes->post('/simpan_toko', 'C_ekspedisi::simpan_toko');
+$routes->get('/input_jtb_toko', 'C_ekspedisi::input_jtb_toko');
+$routes->post('/simpan_jtb', 'C_ekspedisi::simpan_jtb');
 
-$routes->get('/pengiriman_barang', 'C_ekspedisi::pengiriman_barang');
-$routes->post('/simpan', 'C_ekspedisi::simpan');
+
+
+
+
 
 // end transaksi
 

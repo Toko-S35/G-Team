@@ -4,31 +4,33 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TransaksiKeToko extends Migration
+class JTB extends Migration
 {
     public function up()
     {
         $this->forge->addField([
-            'id_transaksi' => [
+            'id_jtb' => [
                 'type'           => 'INT',
                 'constraint'     => 11,
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'tanggal' => [
-                'type'       => 'DATETIME',
+            'id_transaksi' => [
+                'type'           => 'INT',
+                'constraint'     => 11,
+                'unsigned'       => true,
             ],
-            'nama_toko' => [
+            'jenis_barang' => [
                 'type'       => 'VARCHAR',
                 'constraint'     => 255,
             ],
-            'biaya_ekspedisi' => [
+            'tipe_barang' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+            ],
+            'banyak_barang' => [
                 'type'       => 'INT',
                 'unsigned'   => true,
-            ],
-            'keterangan' => [
-                'type'       => 'VARCHAR',
-                'constraint'     => 255,
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
@@ -40,12 +42,13 @@ class TransaksiKeToko extends Migration
             ],
 
         ]);
-        $this->forge->addKey('id_transaksi', true);
-        $this->forge->createTable('transaksi_ke_toko');
+        $this->forge->addKey('id_jtb', true);
+        $this->forge->addForeignKey('id_transaksi', 'transaksi_ke_toko', 'id_transaksi', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('JTB');
     }
 
     public function down()
     {
-        $this->forge->dropTable('transaksi_ke_toko');
+        $this->forge->dropTable('JTB');
     }
 }
