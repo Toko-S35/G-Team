@@ -324,12 +324,9 @@ class C_ekspedisi extends BaseController
 
             ]);
         }
-        // session()->setFlashdata('pesan_j', 'data detail berhasil ditambahkan');
+        session()->setFlashdata('pesan_j', 'data detail berhasil ditambahkan');
 
 
-        // return redirect()->to(base_url('/ekspedisi_toko'));
+        return redirect()->to(base_url('/ekspedisi_toko'));
     }
-
-
-    // 
 }
