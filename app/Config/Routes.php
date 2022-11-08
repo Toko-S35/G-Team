@@ -90,6 +90,8 @@ $routes->get('/input_ekspedisi_toko', 'C_ekspedisi::input_ekspedisi_toko');
 $routes->post('/simpan_toko', 'C_ekspedisi::simpan_toko');
 $routes->get('/input_jtb_toko', 'C_ekspedisi::input_jtb_toko');
 $routes->post('/simpan_jtb', 'C_ekspedisi::simpan_jtb');
+$routes->get('/detail_transaksi', 'C_ekspedisi::detail_transaksi');
+
 
 
 

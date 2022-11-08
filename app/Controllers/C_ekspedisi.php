@@ -270,7 +270,7 @@ class C_ekspedisi extends BaseController
         session()->setFlashdata('pesan_j', 'data berhasil ditambahkan');
 
 
-        return redirect()->to(base_url('/ekspedisi_toko'));
+        return redirect()->to(base_url('/input_jtb_toko'));
     }
 
 
@@ -328,5 +328,15 @@ class C_ekspedisi extends BaseController
 
 
         return redirect()->to(base_url('/ekspedisi_toko'));
+    }
+
+    public function detail_transaksi()
+    {
+        // $ekspedisi = $this->ekspedisiModel->findAll();
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Ekspedisi',
+            // 'ekspedisi' => $ekspedisi
+        ];
+        return view('transaksi/detail_transaksi', $data);
     }
 }

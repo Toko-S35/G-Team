@@ -58,7 +58,7 @@
                                 <td><?= $k['nama_toko']; ?></td>
                                 <td><?= $k['biaya_ekspedisi']; ?></td>
                                 <td>
-                                    <a href=<?= base_url('detail_gudang/' . $k['id_transaksi']); ?> class="fas fa-chevron-circle-right">
+                                    <a href=<?= base_url('/detail_transaksi'); ?> class="fas fa-chevron-circle-right">
                                         Selengkapnya</a>
                                 </td>
 
