@@ -360,7 +360,6 @@ class C_ekspedisi extends BaseController
             'toko' => $toko,
             'jns' => $jns,
             'tpe' => $tpe,
-
         ];
         return view('transaksi/input_jtb', $data);
     }
@@ -416,5 +415,62 @@ class C_ekspedisi extends BaseController
 
         ];
         return view('transaksi/detail_transaksi_toko', $data);
+    }
+
+    public function delete_jtb_toko($id_jtb)
+    {
+        $this->jtbModel->delete($id_jtb);
+        session()->setFlashdata('pesan_hapus_j', 'data berhasil dihapus');
+        return redirect()->back();
+    }
+
+    public function edit_jtb($id_transaksi)
+    {
+        $toko = $this->ekspedisiTokoModel->findAll();
+        $jns = $this->jenisbarangModel->findAll();
+        $tpe = $this->tipebarangModel->findAll();
+        $ekspedisi = $this->jtbModel->find($id_transaksi);
+
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Edit Toko',
+            'ekspedisi' => $ekspedisi,
+            'toko' => $toko,
+            'jns' => $jns,
+            'tpe' => $tpe,
+            'validation' => \Config\Services::validation(),
+
+        ];
+
+        return view('transaksi/edit_jtb', $data);
+    }
+
+
+    public function update_jtb($id_jtb)
+    {
+        if (!$this->validate([
+            'banyak_barang' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                    'numeric' => 'input harus angka'
+                ]
+            ]
+
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+
+        $data = [
+            'id_transaksi' => $this->request->getVar('id_transaksi'),
+            'jenis_barang' => $this->request->getVar('jenis_barang'),
+            'tipe_barang' => $this->request->getVar('tipe_barang'),
+            'banyak_barang' => $this->request->getVar('banyak_barang'),
+        ];
+
+        $this->jtbModel->update($id_jtb, $data);
+        session()->setFlashdata('pesan_j', 'data berhasil diubah');
+
+        return redirect()->to('/detail_transaksi_toko/' . $data['id_transaksi']);
     }
 }

@@ -96,11 +96,13 @@ $routes->post("/edit_toko/(:num)", "C_ekspedisi::edit_toko/$1");
 $routes->get("/edit_toko/(:num)", "C_ekspedisi::edit_toko/$1");
 $routes->put("/update_toko/(:num)", "C_ekspedisi::update_toko/$1");
 
-
 $routes->delete("/delete_toko/(:num)", "C_ekspedisi::delete_toko/$1");
-
-
 $routes->get('/detail_transaksi_toko/(:num)', 'C_ekspedisi::detail_transaksi_toko/$1');
+
+$routes->delete("/delete_jtb_toko/(:num)", "C_ekspedisi::delete_jtb_toko/$1");
+$routes->get("/edit_jtb/(:num)", "C_ekspedisi::edit_jtb/$1");
+$routes->post("/edit_jtb/(:num)", "C_ekspedisi::edit_jtb/$1");
+$routes->put("/update_jtb/(:num)", "C_ekspedisi::update_jtb/$1");
 
 
 

@@ -3,7 +3,7 @@
 
 <div class="page">
     <button class="btn_tampil" onclick="ipt_brg1()">Transaksi Toko</button>
-    <button class="btn_tampil" onclick="ipt_brg2()">Input Transaksi Toko</button>
+    <button class="btn_tampil" onclick="ipt_brg2()">Input Barang Dikirim</button>
 
     <hr>
 

@@ -36,7 +36,7 @@
                         <th>NO</th>
                         <th>Tanggal</th>
                         <th>Nama Toko</th>
-                        <th>Banyak Barang</th>
+                        <th>Biaya Ekspedisi</th>
                         <th>Keterangan</th>
                     </tr>
 
@@ -72,21 +72,17 @@
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
                 <thead>
                     <tr>
                         <th>NO</th>
                         <th>Jenis Barang</th>
                         <th>Tipe Barang</th>
                         <th>Banyak Barang</th>
-                        <th>Aksi (
-                            <a href='transaksi/input_jtb' class="btn btn-primary btn-circle  fas fa-edit" title="Edit">
-                            </a>
-                            )
-                        </th>
+                        <th>Aksi</th>
                     </tr>
 
                 <tbody>
+
                     <?php $i = 1 ?>
 
                     <?php foreach ($ekspedisijtb as $k) : ?>
@@ -98,6 +94,23 @@
                                 <td><?= $k['jenis_barang']; ?></td>
                                 <td><?= $k['tipe_barang']; ?></td>
                                 <td><?= $k['banyak_barang']; ?></td>
+                                <td>
+
+                                    <form action="<?= base_url('/edit_jtb/' . $k['id_jtb']); ?>" method="post" class="d-inline">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="UPDATE">
+                                        <button type="submit" class="btn btn-primary btn-circle " title="Ubah">
+                                            <i class=" fas fa-edit"></i>
+                                        </button>
+                                    </form>
+
+                                    <form action="<?= base_url('/delete_jtb_toko/' . $k['id_jtb']); ?>" method="post" class="d-inline">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-primary btn-circle " title="Hapus" onclick="return confirm('apa kamu yakin akan hapus data?')">
+                                            <i class=" fas fa-trash"></i>
+                                        </button>
+                                    </form>
 
                         </tr>
                 <?php  }
@@ -105,12 +118,24 @@
 
                 </tbody>
 
-            </table>
+            </table><?= aksi($i) ?>
         </div>
     </div>
 
 
 </div>
+
+<?php
+function aksi($i)
+{
+    if ($i == 1) {
+        echo '<a href="/input_jtb_toko" class="fas fa-edit" style="margin:10px;" title="Tambah"></a>';
+    } else {
+        echo ('');
+    }
+}
+
+?>
 
 
 
