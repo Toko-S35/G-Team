@@ -90,11 +90,17 @@ $routes->get('/input_ekspedisi_toko', 'C_ekspedisi::input_ekspedisi_toko');
 $routes->post('/simpan_toko', 'C_ekspedisi::simpan_toko');
 $routes->get('/input_jtb_toko', 'C_ekspedisi::input_jtb_toko');
 $routes->post('/simpan_jtb', 'C_ekspedisi::simpan_jtb');
-$routes->get('/detail_transaksi', 'C_ekspedisi::detail_transaksi');
+$routes->get("/edit_g/(:num)", "C_ekspedisi::edit_g/$1");
+
+$routes->post("/edit_toko/(:num)", "C_ekspedisi::edit_toko/$1");
+$routes->get("/edit_toko/(:num)", "C_ekspedisi::edit_toko/$1");
+$routes->put("/update_toko/(:num)", "C_ekspedisi::update_toko/$1");
 
 
+$routes->delete("/delete_toko/(:num)", "C_ekspedisi::delete_toko/$1");
 
 
+$routes->get('/detail_transaksi_toko/(:num)', 'C_ekspedisi::detail_transaksi_toko/$1');
 
 
 

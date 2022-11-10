@@ -20,11 +20,11 @@
 
     <hr>
     <?php if (session()->getFlashdata('pesan_j')) : ?>
-    <div class="alert alert-success" role="alert"><?= session()->getFlashdata('pesan_j'); ?></div>
+        <div class="alert alert-success" role="alert"><?= session()->getFlashdata('pesan_j'); ?></div>
     <?php endif; ?>
 
     <?php if (session()->getFlashdata('pesan_hapus_j')) : ?>
-    <div class="alert alert-warning" role="alert"><?= session()->getFlashdata('pesan_hapus_j'); ?></div>
+        <div class="alert alert-warning" role="alert"><?= session()->getFlashdata('pesan_hapus_j'); ?></div>
     <?php endif; ?>
 
     <div class="card shadow mb-4">
@@ -42,7 +42,6 @@
                             <th>asal barang</th>
                             <th>Tanggal</th>
                             <th>Biaya Ekspedisi</th>
-                            <th>Detail Pengiriman</th>
                             <th>Aksi</th>
 
 
@@ -52,39 +51,35 @@
                     <tbody>
                         <?php $i = 1 ?>
                         <?php foreach ($ekspedisi as $k) : ?>
-                        <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $k['asal_barang']; ?></td>
-                            <td><?= $k['tanggal']; ?></td>
-                            <td><?= $k['biaya_ekspedisi']; ?></td>
-                            <td>
-                                <a href=<?= base_url('detail_gudang/' . $k['id_transaksi']); ?>
-                                    class="fas fa-chevron-circle-right">
-                                    Selengkapnya</a>
-                            </td>
+                            <tr>
+                                <td><?= $i++; ?></td>
+                                <td><?= $k['asal_barang']; ?></td>
+                                <td><?= $k['tanggal']; ?></td>
+                                <td><?= $k['biaya_ekspedisi']; ?></td>
 
-                            <td>
-                                <form action="<?= base_url('/edit_g/' . $k['id_transaksi']); ?>" method="post"
-                                    class="d-inline">
-                                    <?= csrf_field(); ?>
-                                    <input type="hidden" name="_method" value="UPDATE">
-                                    <button type="submit" class="btn btn-primary btn-circle " title="Ubah">
-                                        <i class=" fas fa-edit"></i>
-                                    </button>
-                                </form>
 
-                                <form action="<?= base_url('/delete_g/' . $k['id_transaksi']); ?>" method="post"
-                                    class="d-inline">
-                                    <?= csrf_field(); ?>
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button type="submit" class="btn btn-primary btn-circle " title="Hapus"
-                                        onclick="return confirm('apa kamu yakin akan hapus data?')">
-                                        <i class=" fas fa-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
+                                <td>
+                                    <a href=<?= base_url('detail_gudang/' . $k['id_transaksi']); ?> class="btn btn-primary btn-circle  far fa-arrow-alt-circle-up" title="Selengkapnya">
+                                    </a>
 
-                        </tr>
+                                    <form action="<?= base_url('/edit_g/' . $k['id_transaksi']); ?>" method="post" class="d-inline">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="UPDATE">
+                                        <button type="submit" class="btn btn-primary btn-circle " title="Ubah">
+                                            <i class=" fas fa-edit"></i>
+                                        </button>
+                                    </form>
+
+                                    <form action="<?= base_url('/delete_g/' . $k['id_transaksi']); ?>" method="post" class="d-inline">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="btn btn-primary btn-circle " title="Hapus" onclick="return confirm('apa kamu yakin akan hapus data?')">
+                                            <i class=" fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+
+                            </tr>
                         <?php endforeach; ?>
 
                     </tbody>
@@ -102,13 +97,13 @@
 
 
 <script>
-function ipt_brg1() {
-    location.href = "<?= base_url('/gudang'); ?>"
-}
+    function ipt_brg1() {
+        location.href = "<?= base_url('/gudang'); ?>"
+    }
 
-function ipt_brg2() {
-    location.href = "<?= base_url('/input_gudang'); ?>"
-}
+    function ipt_brg2() {
+        location.href = "<?= base_url('/input_gudang'); ?>"
+    }
 </script>
 
 

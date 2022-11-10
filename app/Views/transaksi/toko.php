@@ -9,13 +9,11 @@
     <hr>
 
 
-    <hr>
-
     <!-- Page Heading -->
 
     <div class="ctnr">
 
-        <p>Transaksi Gudang</p>
+        <p>Transaksi Toko</p>
     </div>
 
     <hr>
@@ -42,7 +40,6 @@
                             <th>Tanggal</th>
                             <th>Nama Toko</th>
                             <th>Biaya Ekspedisi</th>
-                            <th>Detail Pengiriman</th>
                             <th>Aksi</th>
 
 
@@ -57,13 +54,15 @@
                                 <td><?= $k['tanggal']; ?></td>
                                 <td><?= $k['nama_toko']; ?></td>
                                 <td><?= $k['biaya_ekspedisi']; ?></td>
-                                <td>
-                                    <a href=<?= base_url('/detail_transaksi'); ?> class="fas fa-chevron-circle-right">
-                                        Selengkapnya</a>
-                                </td>
+
 
                                 <td>
-                                    <form action="<?= base_url('/edit_g/' . $k['id_transaksi']); ?>" method="post" class="d-inline">
+
+                                    <a href=<?= base_url('/detail_transaksi_toko/' . $k['id_transaksi']); ?> class="btn btn-primary btn-circle  far fa-arrow-alt-circle-up" title="Selengkapnya">
+                                    </a>
+
+
+                                    <form action="<?= base_url('/edit_toko/' . $k['id_transaksi']); ?>" method="post" class="d-inline">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="UPDATE">
                                         <button type="submit" class="btn btn-primary btn-circle " title="Ubah">
@@ -71,7 +70,7 @@
                                         </button>
                                     </form>
 
-                                    <form action="<?= base_url('/delete_g/' . $k['id_transaksi']); ?>" method="post" class="d-inline">
+                                    <form action="<?= base_url('/delete_toko/' . $k['id_transaksi']); ?>" method="post" class="d-inline">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-primary btn-circle " title="Hapus" onclick="return confirm('apa kamu yakin akan hapus data?')">
@@ -94,6 +93,7 @@
 
     <!-- End of Main Content -->
 </div>
+
 
 
 
