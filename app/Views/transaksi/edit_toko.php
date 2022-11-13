@@ -21,15 +21,21 @@
             <form action="<?= base_url('/update_toko/' . $ekspedisi['id_transaksi']); ?>" method="post">
                 <input type="hidden" name="_method" value="PUT" /><?= csrf_field(); ?>
 
+
                 <div class="form-group">
                     <label>Nama Toko</label>
-                    <input type="text" name="nama_toko" value="<?= $ekspedisi['nama_toko']; ?>" class="form-control <?= ($validation->hasError('nama_toko')) ?
-                                                                                                                        'is-invalid' : ''; ?>">
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('nama_toko'); ?>
-                    </div>
+                    <select name="nama_toko" value="<?= old('nama_toko') ?>" class="form-control <?= ($validation->hasError('nama_toko')) ?
+                                                                                                        'is-invalid' : ''; ?>">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('nama_toko'); ?>
 
+                            <?php foreach ($user as $k) : ?>
+                                <option value="<?= $k->username; ?>"><?= $k->username; ?></option>
+                            <?php endforeach; ?>
+
+                    </select>
                 </div>
+
 
                 <div class="form-group">
                     <label for="start">Tanggal:</label><br>
@@ -48,16 +54,6 @@
                     <div class="invalid-feedback">
                         <?= $validation->getError('biaya_ekspedisi'); ?> </div>
                 </div>
-
-                <div class="form-group">
-                    <label>Keterangan </label>
-                    <input type="text" name="keterangan" value="<?= $ekspedisi['keterangan']; ?>" class="form-control <?= ($validation->hasError('keterangan')) ?
-                                                                                                                            'is-invalid' : ''; ?>">
-                    <div class="invalid-feedback">
-                        <?= $validation->getError('keterangan'); ?>
-                    </div>
-                </div>
-
 
 
                 <button type="submit" class="btn_tampil">Ubah Data Toko</button>

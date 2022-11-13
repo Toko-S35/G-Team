@@ -8,8 +8,7 @@
     <hr>
 
     <div id="List" class="w3-container w3-display-container city">
-        <span onclick="this.parentElement.style.display='none'"
-            class="w3-button w3-large w3-display-topright">&times;</span>
+        <span onclick="this.parentElement.style.display='none'" class="w3-button w3-large w3-display-topright">&times;</span>
 
 
 
@@ -26,7 +25,7 @@
                     <label>Nama Jenis Barang</label>
                     <select name="id_jenis_barang" class="form-control">
                         <?php foreach ($jenisbarang as $k) : ?>
-                        <option value="<?= $k['id_jenis_barang']; ?>"><?= $k['nama_jenis_barang']; ?></option>
+                            <option value="<?= $k['id_jenis_barang']; ?>"><?= $k['nama_jenis_barang']; ?></option>
 
                         <?php endforeach; ?>
 
@@ -36,8 +35,7 @@
 
                 <div class="form-group">
                     <label>Nama Tipe Barang</label>
-                    <input type="text" name="nama_tipe_barang" value="<?= $tipebarang['nama_tipe_barang']; ?>"
-                        class="form-control <?= ($validation->hasError('nama_tipe_barang')) ?
+                    <input type="text" name="nama_tipe_barang" value="<?= $tipebarang['nama_tipe_barang']; ?>" class="form-control <?= ($validation->hasError('nama_tipe_barang')) ?
                                                                                                                                         'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('nama_tipe_barang'); ?>
@@ -46,8 +44,7 @@
 
                 <div class="form-group">
                     <label>Banyak Barang (Tipe)</label>
-                    <input type="text" name="banyak_barang_tipe" value="<?= $tipebarang['banyak_barang_tipe']; ?>"
-                        class="form-control <?= ($validation->hasError('banyak_barang_tipe')) ?
+                    <input type="text" name="banyak_barang_tipe" value="<?= $tipebarang['banyak_barang_tipe']; ?>" class="form-control <?= ($validation->hasError('banyak_barang_tipe')) ?
                                                                                                                                             'is-invalid' : ''; ?>">
                     <div class="invalid-feedback">
                         <?= $validation->getError('banyak_barang_tipe'); ?>

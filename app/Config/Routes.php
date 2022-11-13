@@ -104,6 +104,35 @@ $routes->get("/edit_jtb/(:num)", "C_ekspedisi::edit_jtb/$1");
 $routes->post("/edit_jtb/(:num)", "C_ekspedisi::edit_jtb/$1");
 $routes->put("/update_jtb/(:num)", "C_ekspedisi::update_jtb/$1");
 
+// $routes->get("/update_catatan/(:num)", "C_ekspedisi::update_catatan/$1");
+$routes->post("/update_catatan/(:num)", "C_ekspedisi::update_catatan/$1");
+$routes->put("/update_catatan/(:num)", "C_ekspedisi::update_catatan/$1");
+
+$routes->post("/update_catatan_t/(:num)", "C_ekspedisi::update_catatan_t/$1");
+$routes->put("/update_catatan_t/(:num)", "C_ekspedisi::update_catatan_t/$1");
+
+
+$routes->get('/barang_masuk/(:num)', 'C_ekspedisi::barang_masuk/$1');
+$routes->put("/update_status/(:num)", "C_ekspedisi::update_status/$1");
+$routes->post("/update_status/(:num)", "C_ekspedisi::update_status/$1");
+
+$routes->put("/update_status_d/(:num)", "C_ekspedisi::update_status_d/$1");
+$routes->post("/update_status_d/(:num)", "C_ekspedisi::update_status_d/$1");
+
+
+// $routes->get('/retur/(:num)', 'C_ekspedisi::retur/$1');
+$routes->get('/retur_barang', 'C_ekspedisi::retur_barang');
+$routes->get('/input_retur', 'C_ekspedisi::input_retur');
+
+$routes->get('/input_jtb_retur', 'C_ekspedisi::input_jtb_retur');
+$routes->post('/simpan_retur', 'C_ekspedisi::simpan_retur');
+
+$routes->delete("/delete_retur/(:num)", "C_ekspedisi::delete_retur/$1");
+
+
+
+
+
 
 
 // end transaksi

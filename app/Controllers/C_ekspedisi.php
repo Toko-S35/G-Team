@@ -6,6 +6,10 @@ use App\Models\EkspedisiModel;
 use App\Models\EkspedisiTokoModel;
 use App\Models\jenisBarangModel;
 use App\Models\tipeBarangModel;
+use Myth\Auth\Models\UserModel;
+use App\Models\EkspedisiReturModel;
+
+
 
 
 use App\Models\JTBModel;
@@ -21,6 +25,9 @@ class C_ekspedisi extends BaseController
         $this->tipebarangModel = new tipeBarangModel();
         $this->jenisbarangModel = new jenisBarangModel();
         $this->jtbModel = new JTBModel();
+        $this->userModel = new UserModel();
+        $this->ekspedisiReturModel = new ekspedisiReturModel();
+
         $this->validation = \Config\Services::validation();
     }
 
@@ -207,7 +214,8 @@ class C_ekspedisi extends BaseController
         $ekspedisi = $this->ekspedisiTokoModel->findAll();
         $data = [
             'title' => 'Kasih Abadi | S-35 |Ekspedisi TOKO',
-            'ekspedisi' => $ekspedisi
+            'ekspedisi' => $ekspedisi,
+
         ];
         return view('transaksi/toko', $data);
     }
@@ -215,11 +223,12 @@ class C_ekspedisi extends BaseController
 
     public function input_ekspedisi_toko()
     {
-
+        $user = $this->userModel->findAll();
         $ekspedisi = $this->ekspedisiTokoModel->findAll();
         $data = [
             'title' => 'Kasih Abadi | S-35 |Ekspedisi',
             'ekspedisi' => $ekspedisi,
+            'user' => $user,
             'validation' => \Config\Services::validation()
         ];
         return view('transaksi/input_toko', $data);
@@ -246,13 +255,8 @@ class C_ekspedisi extends BaseController
                     'required' => 'input harus diisi',
                     'numeric' => 'input harus angka'
                 ]
-            ],
-            'keterangan' => [
-                'rules' => 'max_length[250]',
-                'errors' => [
-                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
-                ]
             ]
+
 
         ])) {
             return redirect()->back()->withInput();
@@ -264,7 +268,6 @@ class C_ekspedisi extends BaseController
             'nama_toko' => $this->request->getVar('nama_toko'),
             'tanggal' => $this->request->getVar('tanggal'),
             'biaya_ekspedisi' => $this->request->getVar('biaya_ekspedisi'),
-            'keterangan' => $this->request->getVar('keterangan'),
 
         ]);
         session()->setFlashdata('pesan_j', 'data berhasil ditambahkan');
@@ -284,12 +287,14 @@ class C_ekspedisi extends BaseController
 
     public function edit_toko($id_transaksi)
     {
+        $user = $this->userModel->findAll();
         $ekspedisi = $this->ekspedisiTokoModel->find($id_transaksi);
 
         $data = [
             'title' => 'Kasih Abadi | S-35 |Edit Toko',
             'ekspedisi' => $ekspedisi,
-            'validation' => \Config\Services::validation(),
+            'user' => $user,
+            'validation' => \Config\Services::validation()
 
         ];
 
@@ -318,12 +323,6 @@ class C_ekspedisi extends BaseController
                     'required' => 'input harus diisi',
                     'numeric' => 'input harus angka'
                 ]
-            ],
-            'keterangan' => [
-                'rules' => 'max_length[250]',
-                'errors' => [
-                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
-                ]
             ]
 
         ])) {
@@ -334,13 +333,12 @@ class C_ekspedisi extends BaseController
             'nama_toko' => $this->request->getVar('nama_toko'),
             'tanggal' => $this->request->getVar('tanggal'),
             'biaya_ekspedisi' => $this->request->getVar('biaya_ekspedisi'),
-            'keterangan' => $this->request->getVar('keterangan'),
         ];
 
         $this->ekspedisiTokoModel->update($id_transaksi, $data);
         session()->setFlashdata('pesan_j', 'data berhasil diubah');
 
-        return view('transaksi/input_toko');
+        return redirect()->to(base_url('/ekspedisi_toko'));
     }
 
 
@@ -360,6 +358,7 @@ class C_ekspedisi extends BaseController
             'toko' => $toko,
             'jns' => $jns,
             'tpe' => $tpe,
+
         ];
         return view('transaksi/input_jtb', $data);
     }
@@ -411,7 +410,9 @@ class C_ekspedisi extends BaseController
             'title' => 'Kasih Abadi | S-35 |Ekspedisi',
             'ekspedisi' => $ekspedisi,
             'ekspedisijtb' => $jtbModel,
-            'id_transaksi' => $id_transaksi
+            'id_transaksi' => $id_transaksi,
+            'validation' => \Config\Services::validation()
+
 
         ];
         return view('transaksi/detail_transaksi_toko', $data);
@@ -472,5 +473,224 @@ class C_ekspedisi extends BaseController
         session()->setFlashdata('pesan_j', 'data berhasil diubah');
 
         return redirect()->to('/detail_transaksi_toko/' . $data['id_transaksi']);
+    }
+
+
+    public function barang_masuk($id_transaksi)
+    {
+        $ekspedisi = $this->ekspedisiTokoModel->find($id_transaksi);
+        $jtbModel = $this->jtbModel->find();
+
+
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Ekspedisi',
+            'ekspedisi' => $ekspedisi,
+            'ekspedisijtb' => $jtbModel,
+            'id_transaksi' => $id_transaksi,
+            'validation' => \Config\Services::validation(),
+
+
+        ];
+        return view('transaksi/barang_masuk', $data);
+    }
+
+
+
+    public function update_catatan($id_transaksi)
+    {
+        if (!$this->validate([
+            'keterangan' => [
+                'rules' => 'max_length[250]',
+                'errors' => [
+                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
+                ]
+            ]
+
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+        $data = [
+            'keterangan' => $this->request->getVar('keterangan'),
+            'pesan' => $this->request->getVar('pesan'),
+            'id_transaksi' => $id_transaksi
+        ];
+
+        $this->ekspedisiTokoModel->update($id_transaksi, $data);
+        session()->setFlashdata('pesan_j', 'data berhasil diubah');
+
+        return redirect()->to('/barang_masuk/' . $data['id_transaksi']);
+        // dd($_POST);
+    }
+
+
+    public function update_catatan_t($id_transaksi)
+    {
+        if (!$this->validate([
+            'keterangan' => [
+                'rules' => 'max_length[250]',
+                'errors' => [
+                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
+                ]
+            ]
+
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+        $data = [
+            'keterangan' => $this->request->getVar('keterangan'),
+            'pesan' => $this->request->getVar('pesan'),
+            'id_transaksi' => $id_transaksi
+        ];
+
+        $this->ekspedisiTokoModel->update($id_transaksi, $data);
+        session()->setFlashdata('pesan_j', 'data berhasil diubah');
+
+        return redirect()->to('/detail_transaksi_toko/' . $data['id_transaksi']);
+        // dd($_POST);
+    }
+
+
+
+
+    public function update_status($id_transaksi)
+    {
+
+        $data = [
+            'status' => $this->request->getVar('status'),
+            'id_transaksi' => $id_transaksi
+
+        ];
+
+        // return dd($_POST);
+
+        $this->ekspedisiTokoModel->update($id_transaksi, $data);
+
+        return redirect()->to('/barang_masuk/' . $data['id_transaksi']);
+    }
+
+    public function update_status_d($id_transaksi)
+    {
+
+        $data = [
+            'status' => $this->request->getVar('status'),
+            'id_transaksi' => $id_transaksi
+
+        ];
+
+        // return dd($_POST);
+
+        $this->ekspedisiTokoModel->update($id_transaksi, $data);
+
+        return redirect()->to('/detail_transaksi_toko/' . $data['id_transaksi']);
+    }
+
+    // /////////////////////////////////////////////
+
+
+    public function retur_barang()
+    {
+        $user = $this->userModel->findAll();
+        $ekspedisi = $this->ekspedisiReturModel->findAll();
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Ekspedisi Retur',
+            'user' => $user,
+            'ekspedisi' => $ekspedisi
+        ];
+        return view('transaksi/retur_barang', $data);
+    }
+
+
+    public function input_retur()
+    {
+        $toko = $this->ekspedisiTokoModel->findAll();
+        $ekspedisi = $this->ekspedisiReturModel->findAll();
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Ekspedisi',
+            'ekspedisi' => $ekspedisi,
+            'toko' => $toko,
+            'validation' => \Config\Services::validation()
+        ];
+        return view('transaksi/input_retur', $data);
+    }
+
+
+    public function simpan_retur()
+    {
+        if (!$this->validate([
+            'data' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                ]
+            ],
+            'tanggal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                ]
+            ],
+            'biaya_ekspedisi' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                    'numeric' => 'input harus angka'
+                ]
+            ],
+            'keterangan' => [
+                'rules' => 'max_length[250]',
+                'errors' => [
+                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
+                ]
+            ]
+
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+
+        $this->ekspedisiReturModel->insert([
+
+            'data' => $this->request->getVar('data'),
+            'tanggal' => $this->request->getVar('tanggal'),
+            'biaya_ekspedisi' => $this->request->getVar('biaya_ekspedisi'),
+            'keterangan' => $this->request->getVar('keterangan'),
+
+        ]);
+        session()->setFlashdata('pesan_j', 'data berhasil ditambahkan');
+
+
+        return redirect()->to(base_url('/retur_barang'));
+        return dd($_POST);
+    }
+
+    public function delete_retur($id_transaksi)
+    {
+        $this->ekspedisiReturModel->delete($id_transaksi);
+        session()->setFlashdata('pesan_hapus_j', 'data berhasil dihapus');
+        return redirect()->back();
+    }
+
+
+
+
+
+    public function input_jtb_retur()
+    {
+        $ekspedisi = $this->jtbModel->findAll();
+        $toko = $this->ekspedisiTokoModel->findAll();
+        $jns = $this->jenisbarangModel->findAll();
+        $tpe = $this->tipebarangModel->findAll();
+
+
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Ekspedisi JTB',
+            'ekspedisi' => $ekspedisi,
+            'toko' => $toko,
+            'jns' => $jns,
+            'tpe' => $tpe,
+        ];
+        return view('transaksi/input_jtb', $data);
     }
 }

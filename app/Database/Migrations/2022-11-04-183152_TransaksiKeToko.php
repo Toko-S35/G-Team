@@ -30,6 +30,14 @@ class TransaksiKeToko extends Migration
                 'type'       => 'VARCHAR',
                 'constraint'     => 255,
             ],
+            'pesan' => [
+                'type'       => 'INT',
+                'unsigned'   => true,
+            ],
+            'status' => [
+                'type'       => 'INT',
+                'unsigned'   => true,
+            ],
             'created_at' => [
                 'type'       => 'DATETIME',
                 'null'       => true,
