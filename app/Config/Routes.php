@@ -127,6 +127,13 @@ $routes->get('/input_retur', 'C_ekspedisi::input_retur');
 $routes->get('/input_jtb_retur', 'C_ekspedisi::input_jtb_retur');
 $routes->post('/simpan_retur', 'C_ekspedisi::simpan_retur');
 
+$routes->post("/edit_retur/(:num)", "C_ekspedisi::edit_retur/$1");
+$routes->get("/edit_retur/(:num)", "C_ekspedisi::edit_retur/$1");
+$routes->put("/update_retur/(:num)", "C_ekspedisi::update_retur/$1");
+
+$routes->post("/update_retur/(:num)", "C_ekspedisi::update_retur/$1");
+
+
 $routes->delete("/delete_retur/(:num)", "C_ekspedisi::delete_retur/$1");
 
 

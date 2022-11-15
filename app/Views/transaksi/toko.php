@@ -2,6 +2,14 @@
 <?= $this->section('page-content'); ?>
 
 
+<?php
+function rupiah($angka)
+{
+    return number_format($angka, 0, ',', '.');
+}
+?>
+
+
 <div class="page">
     <button class="btn_tampil" onclick="lst_tg()">Transaksi Toko</button>
     <?php if (in_groups('kp-gudang')) : ?>
@@ -54,11 +62,28 @@
                         <tbody>
                             <?php $i = 1 ?>
                             <?php foreach ($ekspedisi as $k) : ?>
+
+                                <?php
+                                $namahari = date('l', strtotime($k['tanggal']));
+                                ?>
+                                <?php
+                                $daftar_hari = array(
+                                    'Sunday' => 'Minggu',
+                                    'Monday' => 'Senin',
+                                    'Tuesday' => 'Selasa',
+                                    'Wednesday' => 'Rabu',
+                                    'Thursday' => 'Kamis',
+                                    'Friday' => 'Jumat',
+                                    'Saturday' => 'Sabtu'
+                                );
+
+                                ?>
+
                                 <tr>
                                     <td><?= $i++; ?></td>
-                                    <td><?= $k['tanggal']; ?></td>
+                                    <td><?= $daftar_hari[$namahari]; ?> <?= $k['tanggal']; ?></td>
                                     <td><?= $k['nama_toko']; ?></td>
-                                    <td><?= $k['biaya_ekspedisi']; ?></td>
+                                    <td><?= 'Rp. ', rupiah($k['biaya_ekspedisi']); ?></td>
 
                                     <td>
                                         <?php if ($k['status'] == 0) {
@@ -111,13 +136,29 @@
                             <?php foreach ($ekspedisi as $k) : ?>
                                 <tr>
 
+                                    <?php
+                                    $namahari = date('l', strtotime($k['tanggal']));
+                                    ?>
+                                    <?php
+                                    $daftar_hari = array(
+                                        'Sunday' => 'Minggu',
+                                        'Monday' => 'Senin',
+                                        'Tuesday' => 'Selasa',
+                                        'Wednesday' => 'Rabu',
+                                        'Thursday' => 'Kamis',
+                                        'Friday' => 'Jumat',
+                                        'Saturday' => 'Sabtu'
+                                    );
+
+                                    ?>
+
                                     <?php if ($k['nama_toko'] == user()->username) {
                                     ?>
 
                                         <td><?= $i++; ?></td>
-                                        <td><?= $k['tanggal']; ?></td>
+                                        <td><?= $daftar_hari[$namahari]; ?> <?= $k['tanggal']; ?></td>
                                         <td><?= $k['nama_toko']; ?></td>
-                                        <td><?= $k['biaya_ekspedisi']; ?></td>
+                                        <td><?= 'Rp. ', rupiah($k['biaya_ekspedisi']); ?></td>
 
                                         <td>
                                             <?php if ($k['status'] == 0) {

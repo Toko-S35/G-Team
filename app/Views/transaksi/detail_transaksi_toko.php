@@ -1,27 +1,8 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<p><a href="<?= base_url('ekspedisi_toko'); ?>" class="btn_tampil" style="margin:10px ;">Back</a></p>
 
-
-<!-- <div class="page">
-    <button class="btn_tampil" onclick="openCity('List')">Daftar Pembelian</button>
-    <button class="btn_tampil" onclick="openCity('Input')">Detail</button>
-
-    <hr>
-
-    <div id="List" class="w3-container w3-display-container city">
-        <span onclick="this.parentElement.style.display='none'"
-            class="w3-button w3-large w3-display-topright">&times;</span>
-
-
-       
-
-        <div class="ctnr">
-
-            <p>Barang</p>
-        </div>
-
-        <hr> -->
 
 <div class="card shadow mb-4">
 
@@ -117,7 +98,10 @@
 
                     </tbody>
 
-                </table><?= aksi($i) ?>
+                </table>
+                <?php if ($ekspedisi['status'] == 0) { ?>
+                    <?= aksi($i) ?>
+                <?php }  ?>
 
             </div>
         </div>
@@ -203,11 +187,8 @@
 <?php
 function aksi($i)
 {
-    if ($i == 1) {
-        echo '<a href="/input_jtb_toko" class="fas fa-edit" style="margin:10px;" title="Tambah"></a>';
-    } else {
-        echo ('');
-    }
+
+    echo '<a href="/input_jtb_toko" class="fas fa-edit" style="margin:10px;" title="Tambah"></a>';
 }
 
 ?>

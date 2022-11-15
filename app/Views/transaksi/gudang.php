@@ -1,6 +1,12 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<?php
+function rupiah($angka)
+{
+    return number_format($angka, 0, ',', '.');
+}
+?>
 
 <div class="page">
     <button class="btn_tampil" onclick="ipt_brg1()">Transaksi Gudang</button>
@@ -51,11 +57,28 @@
                     <tbody>
                         <?php $i = 1 ?>
                         <?php foreach ($ekspedisi as $k) : ?>
+
+                            <?php
+                            $namahari = date('l', strtotime($k['tanggal']));
+                            ?>
+                            <?php
+                            $daftar_hari = array(
+                                'Sunday' => 'Minggu',
+                                'Monday' => 'Senin',
+                                'Tuesday' => 'Selasa',
+                                'Wednesday' => 'Rabu',
+                                'Thursday' => 'Kamis',
+                                'Friday' => 'Jumat',
+                                'Saturday' => 'Sabtu'
+                            );
+
+                            ?>
+
                             <tr>
                                 <td><?= $i++; ?></td>
                                 <td><?= $k['asal_barang']; ?></td>
-                                <td><?= $k['tanggal']; ?></td>
-                                <td><?= $k['biaya_ekspedisi']; ?></td>
+                                <td><?= $daftar_hari[$namahari]; ?> <?= $k['tanggal']; ?></td>
+                                <td><?= 'Rp. ', rupiah($k['biaya_ekspedisi']); ?></td>
 
 
                                 <td>

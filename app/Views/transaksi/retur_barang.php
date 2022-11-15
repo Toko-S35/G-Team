@@ -2,6 +2,14 @@
 <?= $this->section('page-content'); ?>
 
 
+<?php
+function rupiah($angka)
+{
+    return number_format($angka, 0, ',', '.');
+}
+?>
+
+
 <div class="page">
     <button class="btn_tampil" onclick="lst_tg()">Transaksi Retur Barang</button>
     <?php if (in_groups('kp-toko')) : ?>
@@ -35,6 +43,7 @@
 
         <div class="card-body">
             <div class="table-responsive">
+
                 <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
 
                     <thead>
@@ -52,12 +61,10 @@
 
                     <tbody>
                         <?php $i = 1 ?>
+
                         <?php foreach ($ekspedisi as $k) : ?>
-
-
-
                             <?php
-                            $namahari = date('l', strtotime($k['data']));
+                            $namahari = date('l', strtotime($k['tanggal']));
                             ?>
                             <?php
                             $daftar_hari = array(
@@ -72,14 +79,12 @@
 
                             ?>
 
-
-
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $k['tanggal']; ?></td>
-                                <td><?= $daftar_hari[$namahari]; ?>( <?= $k['data']; ?> )
+                                <td><?= $daftar_hari[$namahari]; ?>( <?= $k['tanggal']; ?> )</td>
+                                <td>( <?= $k['data']; ?> )
                                 </td>
-                                <td><?= $k['biaya_ekspedisi']; ?></td>
+                                <td><?= 'Rp. ', rupiah($k['biaya_ekspedisi']); ?></td>
 
                                 <td>
                                     <?php if ($k['status'] == 0) {
@@ -96,7 +101,7 @@
                                     </a>
 
 
-                                    <form action="<?= base_url('/edit_toko/' . $k['id_transaksi']); ?>" method="post" class="d-inline">
+                                    <form action="<?= base_url('/edit_retur/' . $k['id_transaksi']); ?>" method="post" class="d-inline">
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="_method" value="UPDATE">
                                         <button type="submit" class="btn btn-primary btn-circle " title="Ubah">

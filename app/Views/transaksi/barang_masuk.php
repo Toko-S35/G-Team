@@ -1,27 +1,34 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
+<p><a href="<?= base_url('ekspedisi_toko'); ?>" class="btn_tampil" style="margin:10px ;">Back</a></p>
 
 
-<!-- <div class="page">
-    <button class="btn_tampil" onclick="openCity('List')">Daftar Pembelian</button>
-    <button class="btn_tampil" onclick="openCity('Input')">Detail</button>
-
-    <hr>
-
-    <div id="List" class="w3-container w3-display-container city">
-        <span onclick="this.parentElement.style.display='none'"
-            class="w3-button w3-large w3-display-topright">&times;</span>
+<?php
+function rupiah($angka)
+{
+    return number_format($angka, 0, ',', '.');
+}
+?>
 
 
-       
+<?php
+$namahari = date('l', strtotime($ekspedisi['tanggal']));
+?>
+<?php
+$daftar_hari = array(
+    'Sunday' => 'Minggu',
+    'Monday' => 'Senin',
+    'Tuesday' => 'Selasa',
+    'Wednesday' => 'Rabu',
+    'Thursday' => 'Kamis',
+    'Friday' => 'Jumat',
+    'Saturday' => 'Sabtu'
+);
 
-        <div class="ctnr">
+?>
 
-            <p>Barang</p>
-        </div>
 
-        <hr> -->
 
 <div class="card shadow mb-4">
 
@@ -45,9 +52,9 @@
                     <?php $i = 1 ?>
                     <tr>
                         <td><?= $i++; ?></td>
-                        <td><?= $ekspedisi['tanggal']; ?></td>
+                        <td><?= $daftar_hari[$namahari]; ?> <?= $ekspedisi['tanggal']; ?></td>
                         <td><?= $ekspedisi['nama_toko']; ?></td>
-                        <td><?= $ekspedisi['biaya_ekspedisi']; ?></td>
+                        <td><?= 'Rp. ', rupiah($ekspedisi['biaya_ekspedisi']); ?></td>
                         <td><?= $ekspedisi['keterangan']; ?></td>
 
                     </tr>
@@ -113,7 +120,11 @@
 
                         <tr>
                             <?php if ($ekspedisi['status'] == 0) { ?>
-                                <th>Aksi</th>
+                                <th>Aksi
+                                    <button type="submit" class="btn btn-primary btn-circle " title="Retur">
+                                        <i class=" fas fa-dolly"></i>
+                                    </button>
+                                </th>
                             <?php }  ?>
                         </tr>
                     </thead>

@@ -1,7 +1,6 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-
 <div class="page">
     <button class="btn_tampil" onclick="lst_tg()">Transaksi Retur Barang</button>
     <?php if (in_groups('kp-toko')) : ?>
@@ -19,7 +18,7 @@
     <hr>
     <div class="col-sm-4">
 
-        <form action="<?= base_url("/simpan_retur") ?>" method="post">
+        <form action="<?= base_url("/update_retur/" . $ekspedisi['id_transaksi']) ?>" method="post">
 
             <div class="form-group">
                 <label>Transaksi Toko</label>
@@ -85,7 +84,7 @@
 
 
 
-            <button type="submit" class="btn_tampil">Tambah Transaksi Toko</button>
+            <button type="submit" class="btn_tampil">Edit Data Retur</button>
 
         </form>
     </div>

@@ -1,7 +1,12 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-
+<?php
+function rupiah($angka)
+{
+    return number_format($angka, 0, ',', '.');
+}
+?>
 
 <div class="ctnr">
     <p>Detail Transaksi Gudang</p>
@@ -9,14 +14,15 @@
 
 <hr>
 
+<p><a href="<?= base_url('gudang'); ?>" class="btn_tampil" style="margin:10px ;">Back</a></p>
+
+
 <div class="card shadow mb-4">
 
 
     <!-- DataTales Example -->
 
     <div class="card-body">
-
-        <a href="<?= base_url('gudang'); ?>" class="btn_tampil">Back</a>
 
         <tbody>
 
@@ -29,7 +35,7 @@
                 <div class="card-f">
                     <div class="card-d"><?= $ekspedisi['asal_barang']; ?></div>
                     <div class="card-d"><?= $ekspedisi['tanggal']; ?></div>
-                    <div class="card-d"><?= $ekspedisi['biaya_ekspedisi']; ?></div>
+                    <div class="card-d"><?= 'Rp.', rupiah($ekspedisi['biaya_ekspedisi']); ?></div>
 
 
                 </div>

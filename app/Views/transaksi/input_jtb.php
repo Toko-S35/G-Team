@@ -3,8 +3,8 @@
 
 
 <div class="page">
-    <button class="btn_tampil" onclick="lst_tg()">Transaksi Transaksi Toko</button>
-    <button class="btn_tampil" onclick="ipt_tg()">Input Transaksi Toko</button>
+    <button class="btn_tampil" onclick="lst_tg()">Input Transaksi Toko</button>
+    <button class="btn_tampil" onclick="ipt_tg()">Input Transaksi Barang</button>
 
 
     <hr>
@@ -167,7 +167,7 @@
 
 <script>
     function lst_tg() {
-        location.href = "<?= base_url('/ekspedisi_toko'); ?>"
+        location.href = "<?= base_url('/input_jtb_toko'); ?>"
     }
 
     function ipt_tg() {

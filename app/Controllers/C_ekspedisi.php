@@ -591,12 +591,12 @@ class C_ekspedisi extends BaseController
 
     public function retur_barang()
     {
-        $user = $this->userModel->findAll();
         $ekspedisi = $this->ekspedisiReturModel->findAll();
+        $toko = $this->ekspedisiTokoModel->findAll();
         $data = [
             'title' => 'Kasih Abadi | S-35 |Ekspedisi Retur',
-            'user' => $user,
-            'ekspedisi' => $ekspedisi
+            'toko' => $toko,
+            'ekspedisi' => $ekspedisi,
         ];
         return view('transaksi/retur_barang', $data);
     }
@@ -604,12 +604,14 @@ class C_ekspedisi extends BaseController
 
     public function input_retur()
     {
+        $user = $this->userModel->findAll();
         $toko = $this->ekspedisiTokoModel->findAll();
         $ekspedisi = $this->ekspedisiReturModel->findAll();
         $data = [
             'title' => 'Kasih Abadi | S-35 |Ekspedisi',
             'ekspedisi' => $ekspedisi,
             'toko' => $toko,
+            'user' => $user,
             'validation' => \Config\Services::validation()
         ];
         return view('transaksi/input_retur', $data);
@@ -672,8 +674,22 @@ class C_ekspedisi extends BaseController
         return redirect()->back();
     }
 
+    public function edit_retur($id_transaksi)
+    {
+        $ekspedisi = $this->ekspedisiReturModel->find($id_transaksi);
+        $toko = $this->ekspedisiTokoModel->findAll();
 
 
+        $data = [
+            'title' => 'Kasih Abadi | S-35 |Edit Toko',
+            'ekspedisi' => $ekspedisi,
+            'toko' => $toko,
+            'validation' => \Config\Services::validation()
+
+        ];
+
+        return view('transaksi/edit_retur', $data);
+    }
 
 
     public function input_jtb_retur()
@@ -692,5 +708,52 @@ class C_ekspedisi extends BaseController
             'tpe' => $tpe,
         ];
         return view('transaksi/input_jtb', $data);
+    }
+
+    public function update_retur($id_transaksi)
+    {
+        if (!$this->validate([
+            'data' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                ]
+            ],
+            'tanggal' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                ]
+            ],
+            'biaya_ekspedisi' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'input harus diisi',
+                    'numeric' => 'input harus angka'
+                ]
+            ],
+            'keterangan' => [
+                'rules' => 'max_length[250]',
+                'errors' => [
+                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
+                ]
+            ],
+
+        ])) {
+            return redirect()->back()->withInput();
+        }
+
+        $data = [
+            'data' => $this->request->getVar('data'),
+            'tanggal' => $this->request->getVar('tanggal'),
+            'biaya_ekspedisi' => $this->request->getVar('biaya_ekspedisi'),
+            'keterangan' => $this->request->getVar('keterangan'),
+
+        ];
+
+        $this->ekspedisiReturModel->update($id_transaksi, $data);
+        session()->setFlashdata('pesan_j', 'data berhasil diubah');
+
+        return redirect()->to(base_url('/retur_barang'));
     }
 }
