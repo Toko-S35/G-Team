@@ -1,7 +1,7 @@
 <?= $this->extend('templates/index'); ?>
 <?= $this->section('page-content'); ?>
 
-<p><a href="<?= base_url('ekspedisi_toko'); ?>" class="btn_tampil" style="margin:10px ;">Back</a></p>
+<p><a href="<?= base_url('retur_barang'); ?>" class="btn_tampil" style="margin:10px ;">Back</a></p>
 
 <?php if (session()->getFlashdata('pesan_j')) : ?>
     <div class="alert alert-success" role="alert"><?= session()->getFlashdata('pesan_j'); ?></div>
@@ -34,7 +34,7 @@
                     <tr>
                         <td><?= $i++; ?></td>
                         <td><?= $ekspedisi['tanggal']; ?></td>
-                        <td><?= $ekspedisi['nama_toko']; ?></td>
+                        <td><?= $ekspedisi['data']; ?></td>
                         <td><?= $ekspedisi['biaya_ekspedisi']; ?></td>
                         <td><?= $ekspedisi['keterangan']; ?></td>
 
@@ -83,7 +83,7 @@
                                     <td><?= $k['banyak_barang']; ?></td>
                                     <td>
 
-                                        <form action="<?= base_url('/edit_jtb/' . $k['id_jtb']); ?>" method="post" class="d-inline">
+                                        <form action="<?= base_url('/edit_jtb_retur/' . $k['id_jtb_retur']); ?>" method="post" class="d-inline">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="_method" value="UPDATE">
                                             <button type="submit" class="btn btn-primary btn-circle " title="Ubah">
@@ -91,7 +91,7 @@
                                             </button>
                                         </form>
 
-                                        <form action="<?= base_url('/delete_jtb_toko/' . $k['id_jtb']); ?>" method="post" class="d-inline">
+                                        <form action="<?= base_url('/delete_jtb_retur/' . $k['id_jtb_retur']); ?>" method="post" class="d-inline">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-primary btn-circle " title="Hapus" onclick="return confirm('apa kamu yakin akan hapus data?')">
@@ -106,86 +106,91 @@
                     </tbody>
 
                 </table>
-                <?php if ($ekspedisi['status'] == 0) { ?>
-                    <?= aksi($i) ?>
-                <?php }  ?>
+                <div class="page"> <?php if (in_groups('kp-toko')) : ?>
 
-            </div>
-        </div>
-
-
-
-        <div class="card-body">
-            <table class="table table-bordered" width="100%" cellspacing="0">
-
-
-                <thead>
-
-                    <tr>
                         <?php if ($ekspedisi['status'] == 0) { ?>
-                            <th>Aksi</th>
+                            <?= aksi($i) ?>
                         <?php }  ?>
-                    </tr>
-                </thead>
-                <tbody>
-                    <td>
 
-                        <div style="margin-right: 10px; ">
+                    <?php endif; ?>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="card-body">
+                <table class="table table-bordered" width="100%" cellspacing="0">
+
+
+                    <thead>
+
+                        <tr>
                             <?php if ($ekspedisi['status'] == 0) { ?>
+                                <th>Aksi</th>
+                            <?php }  ?>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <td>
 
-                                <small>Balas setiap catatan dari toko agar notifikasi hilang</small><br>
+                            <div style="margin-right: 10px; ">
+                                <?php if ($ekspedisi['status'] == 0) { ?>
+
+                                    <small>Balas setiap catatan dari toko agar notifikasi hilang</small><br>
 
 
-                                <div class="col-sm-4">
+                                    <div class="col-sm-4">
 
-                                    <form action="<?= base_url('/update_catatan_t/' . $ekspedisi['id_transaksi']); ?>" method="post">
-                                        <input type="hidden" name="_method" value="PUT" /><?= csrf_field(); ?>
-                                        <div class="form-group">
-                                            <label>Catatan</label>
-                                            <textarea name="keterangan" value="<?= $ekspedisi['keterangan']; ?>" class="form-control <?= ($validation->hasError('keterangan')) ?
-                                                                                                                                            'is-invalid' : ''; ?>"></textarea>
-                                            <div class="invalid-feedback">
-                                                <?= $validation->getError('keterangan'); ?>
+                                        <form action="<?= base_url('/update_catatan_retur/' . $ekspedisi['id_transaksi']); ?>" method="post">
+                                            <input type="hidden" name="_method" value="PUT" /><?= csrf_field(); ?>
+                                            <div class="form-group">
+                                                <label>Catatan</label>
+                                                <textarea name="keterangan" value="<?= $ekspedisi['keterangan']; ?>" class="form-control <?= ($validation->hasError('keterangan')) ?
+                                                                                                                                                'is-invalid' : ''; ?>"></textarea>
+                                                <div class="invalid-feedback">
+                                                    <?= $validation->getError('keterangan'); ?>
 
+                                                </div>
                                             </div>
-                                        </div>
-                                        <input type="hidden" name="pesan" value=<?= $ekspedisi['pesan'] = 0 ?>>
+                                            <input type="hidden" name="pesan" value=<?= $ekspedisi['pesan'] = 0 ?>>
 
-                                        <button type="submit" class="btn_tampil">Kirim Catatan</button>
-                                    </form><br>
+                                            <button type="submit" class="btn_tampil">Kirim Catatan</button>
+                                        </form><br>
 
-                                    <button class="btn alert alert-warning">Butuh Validasi Toko</button>
-
+                                        <button class="btn alert alert-warning">Butuh Validasi Toko</button>
 
 
-                                </div>
+
+                                    </div>
 
 
-                        </div>
+                            </div>
+            </div>
+
+
+
+        <?php } elseif ($ekspedisi['status'] == 1) { ?>
+            <form action="<?= base_url('/update_status/' . $ekspedisi['id_transaksi']); ?>" method="post" class="d-inline">
+                <?= csrf_field(); ?>
+                <input type="hidden" name="_method" value="UPDATE">
+
+                <input type="hidden" name="status" value=<?= $ekspedisi['id_transaksi'] = 2 ?>>
+                <button class="btn alert alert-info" style="font-size: 12px; padding:5px; margin:5px; border:solid;">Butuh Validasi Gudang</button>
+            </form>
+        <?php } else { ?>
+            <button class="btn alert alert-success" style="font-size: 12px; padding:5px; ">Validasi Selesai</button>
+
+        <?php }  ?>
         </div>
 
+        </td>
 
 
-    <?php } elseif ($ekspedisi['status'] == 1) { ?>
-        <form action="<?= base_url('/update_status/' . $ekspedisi['id_transaksi']); ?>" method="post" class="d-inline">
-            <?= csrf_field(); ?>
-            <input type="hidden" name="_method" value="UPDATE">
-
-            <input type="hidden" name="status" value=<?= $ekspedisi['id_transaksi'] = 2 ?>>
-            <button class="btn alert alert-info" style="font-size: 12px; padding:5px; margin:5px; border:solid;">Butuh Validasi Gudang</button>
-        </form>
-    <?php } else { ?>
-        <button class="btn alert alert-success" style="font-size: 12px; padding:5px; ">Validasi Selesai</button>
-
-    <?php }  ?>
+        </tbody>
+        </table>
     </div>
-
-    </td>
-
-
-    </tbody>
-    </table>
-</div>
 
 
 
@@ -195,7 +200,7 @@
 function aksi($i)
 {
 
-    echo '<a href="/input_jtb_toko" class="fas fa-edit" style="margin:10px;" title="Tambah"></a>';
+    echo '<a href="/input_jtb_retur" class="fas fa-edit" style="margin:10px;" title="Tambah"></a>';
 }
 
 ?>

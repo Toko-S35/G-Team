@@ -2,7 +2,7 @@
 <?= $this->section('page-content'); ?>
 
 
-<p><a href="<?= base_url('ekspedisi_toko'); ?>" class="btn_tampil" style="margin:10px ;">Back</a></p>
+<p><a href="<?= base_url('retur_barang'); ?>" class="btn_tampil" style="margin:10px ;">Back</a></p>
 
 <div class="page">
 
@@ -19,7 +19,7 @@
         <hr>
         <div class="col-sm-4">
 
-            <form action="<?= base_url('/update_jtb/' . $ekspedisi['id_jtb']); ?>" method="post">
+            <form action="<?= base_url('/update_jtb_retur/' . $ekspedisi['id_jtb_retur']); ?>" method="post">
                 <input type="hidden" name="_method" value="PUT" /><?= csrf_field(); ?>
 
                 <div class="form-group">
@@ -45,7 +45,7 @@
                             ?>
 
                             <option name="id_transaksi[]" value="<?= $k['id_transaksi']; ?>">
-                                <?= $k['nama_toko']; ?> <?= $daftar_hari[$namahari]; ?> (<?= date('d F Y', strtotime($k['tanggal'])); ?>)</option>
+                                <?= $k['data']; ?> <?= $daftar_hari[$namahari]; ?> (<?= date('d F Y', strtotime($k['tanggal'])); ?>)</option>
 
                         <?php endforeach; ?>
 

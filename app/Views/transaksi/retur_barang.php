@@ -97,7 +97,7 @@ function rupiah($angka)
 
                                 <td>
 
-                                    <a href=<?= base_url('/detail_transaksi_toko/' . $k['id_transaksi']); ?> class="btn btn-primary btn-circle  far fa-arrow-alt-circle-up" title="Selengkapnya">
+                                    <a href=<?= base_url('/detail_transaksi_retur/' . $k['id_transaksi']); ?> class="btn btn-primary btn-circle  far fa-arrow-alt-circle-up" title="Selengkapnya">
                                     </a>
 
 

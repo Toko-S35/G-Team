@@ -5,7 +5,7 @@
 <div class="page">
     <button class="btn_tampil" onclick="lst_tg()">Transaksi Retur Barang</button>
     <?php if (in_groups('kp-toko')) : ?>
-        <button class="btn_tampil" onclick="ipt_tg()">Input Retur Barang</button>
+        <button class="btn_tampil" onclick="ipt_tg()">Input Detail Retur Barang</button>
     <?php endif; ?>
 
     <hr>

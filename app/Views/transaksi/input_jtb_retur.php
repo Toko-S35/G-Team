@@ -2,9 +2,11 @@
 <?= $this->section('page-content'); ?>
 
 
-<div class="page">
-    <button class="btn_tampil" onclick="lst_tg()">Transaksi Transaksi Toko</button>
-    <button class="btn_tampil" onclick="ipt_tg()">Input Transaksi Toko</button>
+<div class="page"> <?php if (in_groups('kp-toko')) : ?>
+        <button class="btn_tampil" onclick="lst_tg()">Transaksi Retur</button>
+    <?php endif; ?>
+
+    <button class="btn_tampil" onclick="ipt_tg()">Input Transaksi Retur</button>
 
 
     <hr>
@@ -17,7 +19,7 @@
 
     <div class="col-sm-4">
 
-        <form action="<?= base_url("/simpan_jtb") ?>" method="post">
+        <form action="<?= base_url("/simpan_jtb_retur") ?>" method="post">
 
             <div class="form-group">
                 <label>Transaksi Toko</label>
@@ -42,7 +44,7 @@
                         ?>
 
                         <option name="id_transaksi[]" value="<?= $k['id_transaksi']; ?>">
-                            <?= $k['nama_toko']; ?> <?= $daftar_hari[$namahari]; ?> (<?= date('d F Y', strtotime($k['tanggal'])); ?>)</option>
+                            <?= $k['data']; ?> <?= $daftar_hari[$namahari]; ?> (<?= date('d F Y', strtotime($k['tanggal'])); ?>)</option>
 
                     <?php endforeach; ?>
 
@@ -167,11 +169,11 @@
 
 <script>
     function lst_tg() {
-        location.href = "<?= base_url('/ekspedisi_toko'); ?>"
+        location.href = "<?= base_url('/input_retur'); ?>"
     }
 
     function ipt_tg() {
-        location.href = "<?= base_url('/input_ekspedisi_toko'); ?>"
+        location.href = "<?= base_url('/input_jtb_retur'); ?>"
     }
 </script>
 

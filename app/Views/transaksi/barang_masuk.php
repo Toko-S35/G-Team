@@ -121,9 +121,6 @@ $daftar_hari = array(
                         <tr>
                             <?php if ($ekspedisi['status'] == 0) { ?>
                                 <th>Aksi
-                                    <button type="submit" class="btn btn-primary btn-circle " title="Retur">
-                                        <i class=" fas fa-dolly"></i>
-                                    </button>
                                 </th>
                             <?php }  ?>
                         </tr>

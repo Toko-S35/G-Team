@@ -2,10 +2,12 @@
 <?= $this->section('page-content'); ?>
 
 
+<p><a href="<?= base_url('ekspedisi_toko'); ?>" class="btn_tampil" style="margin:10px ;">Back</a></p>
 
 <div class="page">
 
     <hr>
+
 
     <div id="List" class="w3-container w3-display-container city">
         <span onclick="this.parentElement.style.display='none'" class="w3-button w3-large w3-display-topright">&times;</span>
