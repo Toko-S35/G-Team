@@ -16,12 +16,11 @@
     <hr>
     <div class="col-sm-4">
 
-        <form action="<?= base_url("/simpan_gudang") ?>" method="post">
+        <form action="<?= base_url("/simpan_gudang") ?>" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label>Asal Barang</label>
-                <input type="text" name="asal_barang" value="<?= old('asal_barang') ?>"
-                    class="form-control <?= ($validation->hasError('asal_barang')) ?
+                <input type="text" name="asal_barang" value="<?= old('asal_barang') ?>" class="form-control <?= ($validation->hasError('asal_barang')) ?
                                                                                                                 'is-invalid' : ''; ?>">
                 <div class="invalid-feedback">
                     <?= $validation->getError('asal_barang'); ?>
@@ -31,8 +30,7 @@
 
             <div class="form-group">
                 <label for="start">Tanggal:</label><br>
-                <input type="date" name="tanggal" value="<?= old('tanggal') ?>"
-                    class="form-control <?= ($validation->hasError('tanggal')) ?
+                <input type="date" name="tanggal" value="<?= old('tanggal') ?>" class="form-control <?= ($validation->hasError('tanggal')) ?
                                                                                                         'is-invalid' : ''; ?>">
                 <div class="invalid-feedback">
                     <?= $validation->getError('tanggal'); ?>
@@ -42,8 +40,7 @@
 
             <div class="form-group">
                 <label>Biaya Ekspedisi</label>
-                <input type="text" name="biaya_ekspedisi" value="<?= old('biaya_ekspedisi') ?>"
-                    class="form-control <?= ($validation->hasError('biaya_ekspedisi')) ?
+                <input type="text" name="biaya_ekspedisi" value="<?= old('biaya_ekspedisi') ?>" class="form-control <?= ($validation->hasError('biaya_ekspedisi')) ?
                                                                                                                         'is-invalid' : ''; ?>">
                 <div class="invalid-feedback">
                     <?= $validation->getError('biaya_ekspedisi'); ?>
@@ -52,8 +49,7 @@
 
             <div class="form-group">
                 <label>Keterangan </label>
-                <input type="text" name="keterangan" value="<?= old('keterangan') ?>"
-                    class="form-control <?= ($validation->hasError('keterangan')) ?
+                <input type="text" name="keterangan" value="<?= old('keterangan') ?>" class="form-control <?= ($validation->hasError('keterangan')) ?
                                                                                                                 'is-invalid' : ''; ?>">
                 <div class="invalid-feedback">
                     <?= $validation->getError('keterangan'); ?>
@@ -62,8 +58,7 @@
 
             <div class="form-group">
                 <label>Foto Nota</label>
-                <input type="text" name="nota" value="<?= old('nota') ?>"
-                    class="form-control <?= ($validation->hasError('nota')) ?
+                <input type="file" name="nota" value="<?= old('nota') ?>" class="form-control <?= ($validation->hasError('nota')) ?
                                                                                                     'is-invalid' : ''; ?>">
                 <div class="invalid-feedback">
                     <?= $validation->getError('nota'); ?>
@@ -78,13 +73,13 @@
 </div>
 
 <script>
-function ipt_brg1() {
-    location.href = "<?= base_url('/gudang'); ?>"
-}
+    function ipt_brg1() {
+        location.href = "<?= base_url('/gudang'); ?>"
+    }
 
-function ipt_brg2() {
-    location.href = "<?= base_url('/input_gudang'); ?>"
-}
+    function ipt_brg2() {
+        location.href = "<?= base_url('/input_gudang'); ?>"
+    }
 </script>
 
 <?= $this->endSection(); ?>

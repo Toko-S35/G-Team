@@ -74,14 +74,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>Keterangan </label>
-                <input type="text" name="keterangan" value="<?= old('keterangan') ?>" class="form-control <?= ($validation->hasError('keterangan')) ?
-                                                                                                                'is-invalid' : ''; ?>">
-                <div class="invalid-feedback">
-                    <?= $validation->getError('keterangan'); ?>
-                </div>
-            </div>
+
 
 
 

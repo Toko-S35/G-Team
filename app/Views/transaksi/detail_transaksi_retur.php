@@ -25,7 +25,7 @@
                         <th>Tanggal</th>
                         <th>Nama Toko</th>
                         <th>Biaya Ekspedisi</th>
-                        <th>Keterangan</th>
+                        <th>Laporan</th>
                     </tr>
 
                     </tfoot>

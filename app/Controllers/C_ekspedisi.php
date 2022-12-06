@@ -62,6 +62,7 @@ class C_ekspedisi extends BaseController
 
     public function simpan_gudang()
     {
+        dd($_POST);
         if (!$this->validate([
             'asal_barang' => [
                 'rules' => 'required',
@@ -642,12 +643,12 @@ class C_ekspedisi extends BaseController
                     'numeric' => 'input harus angka'
                 ]
             ],
-            'keterangan' => [
-                'rules' => 'max_length[250]',
-                'errors' => [
-                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
-                ]
-            ]
+            // 'keterangan' => [
+            //     'rules' => 'max_length[250]',
+            //     'errors' => [
+            //         'max_length' => 'input tidak boleh lebih dari 250 karakter',
+            //     ]
+            // ]
 
         ])) {
             return redirect()->to(base_url('/input_jtb_retur'));
@@ -659,7 +660,7 @@ class C_ekspedisi extends BaseController
             'data' => $this->request->getVar('data'),
             'tanggal' => $this->request->getVar('tanggal'),
             'biaya_ekspedisi' => $this->request->getVar('biaya_ekspedisi'),
-            'keterangan' => $this->request->getVar('keterangan'),
+            // 'keterangan' => $this->request->getVar('keterangan'),
 
         ]);
         session()->setFlashdata('pesan_j', 'data berhasil ditambahkan');
@@ -718,12 +719,12 @@ class C_ekspedisi extends BaseController
                     'numeric' => 'input harus angka'
                 ]
             ],
-            'keterangan' => [
-                'rules' => 'max_length[250]',
-                'errors' => [
-                    'max_length' => 'input tidak boleh lebih dari 250 karakter',
-                ]
-            ],
+            // 'keterangan' => [
+            //     'rules' => 'max_length[250]',
+            //     'errors' => [
+            //         'max_length' => 'input tidak boleh lebih dari 250 karakter',
+            //     ]
+            // ],
 
         ])) {
             return redirect()->back()->withInput();
@@ -733,7 +734,7 @@ class C_ekspedisi extends BaseController
             'data' => $this->request->getVar('data'),
             'tanggal' => $this->request->getVar('tanggal'),
             'biaya_ekspedisi' => $this->request->getVar('biaya_ekspedisi'),
-            'keterangan' => $this->request->getVar('keterangan'),
+            // 'keterangan' => $this->request->getVar('keterangan'),
 
         ];
 
